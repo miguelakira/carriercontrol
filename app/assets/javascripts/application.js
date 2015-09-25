@@ -10,7 +10,13 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require sugar
 //= require jquery
-//= require jquery_ujs
-//= require turbolinks
+//= require bootstrap
+//= require angular
+//
+//= require angular-i18n/angular-locale_pt-br
+//= require angular-bootstrap
+//
+//= require_tree ./angular
 //= require_tree .
