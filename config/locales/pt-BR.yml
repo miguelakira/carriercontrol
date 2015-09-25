@@ -1,0 +1,24 @@
+pt-BR:
+  activerecord:
+    models:
+      car: Carro
+      buyer: Comprador
+      person: Pessoa
+      company: Empresa
+    attributes:
+      car:
+        id: ID
+        plate: Placa
+        model: Modelo
+      person:
+        name: Nome
+        cpf: CPF
+        rg: RG
+        phone: Telefone Fixo
+        cellphone: Telefone Celular
+        email: Email
+      company:
+        name: Nome Fantasia
+        company_name: Razão Social
+        cnpj: CNPJ
+        email: Email
