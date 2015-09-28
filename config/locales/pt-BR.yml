@@ -10,6 +10,7 @@ pt-BR:
         id: ID
         plate: Placa
         model: Modelo
+        delivery_status: Status
       person:
         name: Nome
         cpf: CPF
@@ -22,3 +23,13 @@ pt-BR:
         company_name: Razão Social
         cnpj: CNPJ
         email: Email
+
+  enumerations:
+    delivery_status:
+      not_yet_loaded: Aguardando Carregamento
+      on_transit: Em Trânsito
+      unloaded: Descarregado
+      waiting_for_client: Aguardando por Cliente
+      delivered: Entregue
+      in_logistics: Em logística
+      with_hired_carrier: Com Transportadora Contratada

@@ -10,15 +10,13 @@
     "globals"
   ],
   "dependencies": {
-    "bootstrap": "~3.2.0",
+    "bootswatch-dist": "3.3.5-paper",
     "angular": "~1.4.3",
+    "angular-ui-router": "~0.2.15",
     "font-awesome": "~4.3.0",
     "angular-bootstrap": "~0.13.0",
     "sugar": "~1.4.1",
     "angular-i18n": "~1.4.3"
-  },
-  "resolutions": {
-    "bootstrap": "~3.2.0"
   },
   "license": "MIT",
   "homepage": "",

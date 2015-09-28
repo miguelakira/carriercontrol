@@ -15,5 +15,9 @@
     carService.list().then(function(cars) {
         $scope.cars = cars;
       });
+
+    $scope.editCar = function(car) {
+      console.log(car);
+    }
   });
 })(window.angular);
