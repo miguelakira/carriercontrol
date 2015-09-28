@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150926004026) do
+ActiveRecord::Schema.define(version: 20150928171437) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,9 +54,12 @@ ActiveRecord::Schema.define(version: 20150926004026) do
     t.string   "model"
     t.integer  "buyer_id"
     t.string   "buyer_type"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "delivery_status"
+    t.date     "expected_end_date"
+    t.date     "purchase_date"
+    t.date     "delivery_date"
   end
 
   add_index "cars", ["buyer_type", "buyer_id"], name: "index_cars_on_buyer_type_and_buyer_id", using: :btree

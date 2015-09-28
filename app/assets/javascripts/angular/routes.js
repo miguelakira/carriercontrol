@@ -1,7 +1,6 @@
 (function(angular) {
   "use strict";
   angular.module("carriercontrol.routes", [])
-
   .factory("carriercontrolRoutes", function() {
     function route() {
       return Array.prototype.join.call(arguments, "/") + ".json"
