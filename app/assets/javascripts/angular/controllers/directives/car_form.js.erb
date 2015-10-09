@@ -1,0 +1,30 @@
+(function(angular) {
+  "use strict";
+
+  angular.module("directives.carForm", [
+    "services.carService",
+  ])
+
+  .directive("carForm", function(
+    carService
+  ) {
+    return {
+      restrict: "E",
+      scope: {
+        car: "=",
+        carTypes: "=",
+        onSave: "&onSave",
+        cancel: "&onCancel"
+      },
+      template: JST["angular/templates/directives/car_form"],
+      controller: function($scope) {
+        $scope.save = function(form) {
+          carService.save($scope.car).then(function(savedCar) {
+            $scope.onSave({"car": savedCar});
+          }, function(errors) {
+          });
+        };
+      }
+    }
+  });
+})(window.angular);

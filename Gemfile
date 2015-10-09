@@ -16,6 +16,9 @@ gem "activeadmin", github: "activeadmin"
 gem "devise"
 gem "enumerate_it"
 
+gem "ejs"
+gem "ngannotate-rails"
+
 group :development, :test do
   gem "byebug"
 end

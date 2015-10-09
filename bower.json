@@ -16,7 +16,9 @@
     "font-awesome": "~4.3.0",
     "angular-bootstrap": "~0.13.0",
     "sugar": "~1.4.1",
-    "angular-i18n": "~1.4.3"
+    "angular-i18n": "~1.4.3",
+    "angular-ui-router": "~0.2.15",
+    "eonasdan-bootstrap-datetimepicker": "*"
   },
   "license": "MIT",
   "homepage": "",

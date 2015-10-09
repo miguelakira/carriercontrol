@@ -9,12 +9,25 @@ class CarsController < ApplicationController
     render :edit
   end
 
+  def create
+    @car = Car.new(car_params)
+    if @car.save
+      render json: @car
+    else
+      render json: { errors: @car.errors }, status: :bad_request
+    end
+  end
+
   def update
     if @car.update(car_params)
-      redirect_to root_path, notice: 'Car was successfully updated.'
+      render json: @car
     else
-      render :edit
+      render json: { errors: @car.errors }, status: :bad_request
     end
+  end
+
+  def show
+    @car = Car.find params[:id]
   end
 
   private

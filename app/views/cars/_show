@@ -1,0 +1,102 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <div clas="panel-title"><h3>Detalhes do cliente</h3></div>
+        </div>
+
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>Nome</th>
+              <td><%= @car.buyer.name %></td>
+            </tr>
+            <% @car.buyer.documents.each do |k, v| %>
+              <tr>
+                <th><%= k  %></th>
+                <td><%= v %></td>
+              </tr>
+            <% end -%>
+            <tr>
+              <th>Telefone</th>
+              <td><%= @car.buyer.phone %></td>
+            </tr>
+            <% if @car.buyer.try(:cellphone).present? %>
+              <tr>
+                <th>Celular</th>
+                <td><%= @car.buyer.cellphone %></td>
+              </tr>
+            <% end -%>
+            <tr>
+              <th>e-mail</th>
+              <td><%= @car.buyer.email %></td>
+            </tr>
+            <tr>
+              <th>Nome</th>
+              <td><%= @car.buyer.name %></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <div clas="panel-title"><h3>Detalhes do cliente</h3></div>
+        </div>
+
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>Placa</th>
+              <td><%= @car.plate %></td>
+            </tr>
+            <tr>
+              <th>Modelo</th>
+              <td><%= @car.model %></td>
+            </tr>
+            <tr>
+              <th>Nome</th>
+              <td><%= @car.buyer.name %></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+        <div class="col-md-4">
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <div clas="panel-title"><h3>Detalhes do cliente</h3></div>
+        </div>
+
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>Placa</th>
+              <td><%= @car.plate %></td>
+            </tr>
+            <tr>
+              <th>Modelo</th>
+              <td><%= @car.model %></td>
+            </tr>
+            <tr>
+              <th>Nome</th>
+              <td><%= @car.buyer.name %></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+  </div>
+  <div class="row">
+    <div class="col-md-6"></div>
+    <div class="col-md-6"></div>
+  </div>
+</div>
