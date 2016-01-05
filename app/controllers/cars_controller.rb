@@ -11,18 +11,26 @@ class CarsController < ApplicationController
 
   def create
     @car = Car.new(car_params)
-    if @car.save
-      render json: @car
-    else
-      render json: { errors: @car.errors }, status: :bad_request
+    respond_to do |format|
+      if @car.save
+        format.html { redirect_to cars_path, notice: "Carro criado com sucesso" }
+        format.json { render json: @car }
+      else
+        format.html { render :new }
+        format.json { render json: { errors: @car.errors }, status: :bad_request }
+      end
     end
   end
 
   def update
-    if @car.update(car_params)
-      render json: @car
-    else
-      render json: { errors: @car.errors }, status: :bad_request
+    respond_to do |format|
+      if @car.update(car_params)
+        format.html { redirect_to cars_path, notice: "Carro editado com sucesso" }
+        format.json { render json: @car }
+      else
+        format.html { render :edit }
+        format.json { render json: { errors: @car.errors }, status: :bad_request }
+      end
     end
   end
 
