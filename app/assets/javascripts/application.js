@@ -13,7 +13,7 @@
 //= require sugar
 //= require jquery
 //= require angular
-//= require bootstrap/dist/js/bootstrap
+//= require bootswatch-dist/js/bootstrap
 //= require angular-i18n/angular-locale_pt-br
 //= require angular-bootstrap
 //
