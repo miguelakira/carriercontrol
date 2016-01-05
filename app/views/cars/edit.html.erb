@@ -49,6 +49,28 @@
             </div>
           </div>
 
+          <div class="field form-group">
+            <%= f.label :purchase_date, class: 'col-md-2 control-label' %>
+            <div class="col-md-4">
+              <div class='input-group date' id='datetimepicker_start'>
+                <%= f.text_field :purchase_date, class: 'form-control', id: "datetimepicker1" %>
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-time"></span>
+                </span>
+              </div>
+            </div>
+
+            <%= f.label :expected_end_date, class: 'col-md-2 control-label' %>
+            <div class="col-md-4">
+              <div class='input-group date datetimepicker' id='datetimepicker_end'>
+                <%= f.text_field :expected_end_date, class: 'form-control', id: "datetimepicker1" %>
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-time"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+
         <%= button_tag(:save, type: 'submit', class: "btn btn-primary") %>
         <% end %>
       </div>

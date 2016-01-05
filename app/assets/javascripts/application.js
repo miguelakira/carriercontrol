@@ -17,5 +17,9 @@
 //= require angular-i18n/angular-locale_pt-br
 //= require angular-bootstrap
 //
+//= require moment
+//= require eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker
+//
+//= require datepicker
 //= require_tree ./angular
 //= require_directory .

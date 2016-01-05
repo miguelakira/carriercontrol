@@ -17,7 +17,10 @@
     "bootswatch-dist": "3.3.5-paper",
     "eonasdan-bootstrap-datetimepicker": "*",
     "font-awesome": "~4.3.0",
-    "sugar": "~1.4.1"
+    "angular-bootstrap": "~0.13.0",
+    "sugar": "~1.4.1",
+    "angular-i18n": "~1.4.3",
+    "eonasdan-bootstrap-datetimepicker": "4.17.37"
   },
   "license": "MIT",
   "homepage": "",
