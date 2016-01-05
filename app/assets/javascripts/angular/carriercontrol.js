@@ -2,7 +2,6 @@
   "user strict";
   angular.module("carrierApp", [
     "controllers.cars",
-    "ui.bootstrap",
-    "directives.carForm",
+    "ui.bootstrap"
     ]);
 })(window.angular);
