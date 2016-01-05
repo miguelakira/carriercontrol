@@ -14,6 +14,7 @@
  *= require bootswatch-dist/css/bootstrap
  *= cars
  *= require_self
+ *= require_directory .
  */
 
 body {
@@ -26,7 +27,7 @@ body {
 }
 
 .equal, .equal > div[class*='col-'] {
-    display: -webkit-flex;
-    display: flex;
-    flex:1 1 auto;
+  display: -webkit-flex;
+  display: flex;
+  flex: 1 1 auto;
 }

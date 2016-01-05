@@ -12,11 +12,10 @@
 //
 //= require sugar
 //= require jquery
-//= require bootstrap
 //= require angular
-//
+//= require bootstrap/dist/js/bootstrap
 //= require angular-i18n/angular-locale_pt-br
 //= require angular-bootstrap
 //
 //= require_tree ./angular
-//= require_tree .
+//= require_directory .
