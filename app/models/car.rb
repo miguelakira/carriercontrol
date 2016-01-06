@@ -5,15 +5,17 @@ class Car < ActiveRecord::Base
   has_enumeration_for :delivery_status, with: DeliveryStatus, create_helpers: true
 
   belongs_to :buyer, polymorphic: true
+  accepts_nested_attributes_for :buyer
 
   default_scope { order "updated_at DESC" }
+
+  before_save :uppercase_plates
+  after_initialize :set_purchase_date_to_today, if: :new_record?
 
   validates :plate, presence: true, uniqueness: true
   validates :model, presence: true
   validate :plate_must_be_valid
   validate :end_date_must_be_after_purchase_date
-
-  before_save :uppercase_plates
 
   private
   def plate_must_be_valid
@@ -22,6 +24,10 @@ class Car < ActiveRecord::Base
 
   def uppercase_plates
     plate.upcase!
+  end
+
+  def set_purchase_date_to_today
+    self.purchase_date = Date.today
   end
 
   def end_date_must_be_after_purchase_date

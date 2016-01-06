@@ -1,12 +1,16 @@
 class CarsController < ApplicationController
-  before_action :set_car, only: [:edit, :update]
+  before_action :set_car_and_buyer, only: [:edit, :update]
 
   def index
     @cars = Car.all.includes(:buyer)
   end
 
   def edit
-    render :edit
+  end
+
+  def new
+    @car = Car.new
+    @buyer = @car.buyer_build
   end
 
   def create
@@ -40,11 +44,13 @@ class CarsController < ApplicationController
 
   private
 
-  def set_car
+  def set_car_and_buyer
     @car = Car.find params[:id]
+    @buyer = @car.buyer
   end
 
   def car_params
-    params.require(:car).permit(:id, :plate, :model, :buyer_id, :delivery_status, :purchase_date, :expected_end_date)
+    car_params = params.require(:car).permit(:id, :plate, :model, :buyer_id, :delivery_status, :purchase_date, :expected_end_date,
+      buyer_attributes: [:id, :name, :cpf, :cnpj])
   end
 end

@@ -4,4 +4,8 @@ class Company < ActiveRecord::Base
   def documents
     { cnpj: cnpj }
   end
+
+  def document_name
+    "cnpj"
+  end
 end
