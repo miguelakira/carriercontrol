@@ -10,11 +10,16 @@ class CarsController < ApplicationController
 
   def new
     @car = Car.new
-    @buyer = @car.buyer_build
+    @buyer = @car.buyer = Person.new
   end
 
   def create
-    @car = Car.new(car_params)
+    car_only_params = car_params
+    buyer_params = car_only_params.delete :buyer_attributes
+
+    @car = Car.new(car_only_params)
+    @buyer = @car.build_buyer(buyer_params)
+
     respond_to do |format|
       if @car.save
         format.html { redirect_to cars_path, notice: "Carro criado com sucesso" }
@@ -50,7 +55,7 @@ class CarsController < ApplicationController
   end
 
   def car_params
-    car_params = params.require(:car).permit(:id, :plate, :model, :buyer_id, :delivery_status, :purchase_date, :expected_end_date,
+    params.require(:car).permit(:id, :plate, :model, :buyer_id, :delivery_status, :purchase_date, :expected_end_date, :buyer_type,
       buyer_attributes: [:id, :name, :cpf, :cnpj])
   end
 end

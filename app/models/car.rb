@@ -1,6 +1,7 @@
 class Car < ActiveRecord::Base
   extend EnumerateIt
   PLATE_REGEX = /^[a-zA-Z]{3}\-\d{4}$/
+  BUYER_TYPES = %w(Person Company)
 
   has_enumeration_for :delivery_status, with: DeliveryStatus, create_helpers: true
 
@@ -15,7 +16,12 @@ class Car < ActiveRecord::Base
   validates :plate, presence: true, uniqueness: true
   validates :model, presence: true
   validate :plate_must_be_valid
-  validate :end_date_must_be_after_purchase_date
+  validate :end_date_must_be_after_purchase_date, if: lambda{ |object| object.expected_end_date.present? }
+
+  def build_buyer(params = nil)
+    raise "Unknown buyer_type: #{buyer_type}" unless BUYER_TYPES.include?(buyer_type)
+    self.buyer = buyer_type.constantize.new(params)
+  end
 
   private
   def plate_must_be_valid

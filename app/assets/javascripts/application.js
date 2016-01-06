@@ -18,8 +18,8 @@
 //= require angular-bootstrap
 //
 //= require moment
-//= require eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker
-//
+//= require eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min
 //= require datepicker
+//
 //= require_tree ./angular
 //= require_directory .
