@@ -67,7 +67,63 @@
         </div>
       </div>
     </div>
+
     <%= render partial: "#{@car.buyer_type.underscore}_form", locals: {f: f} %>
+
+    <%= f.fields_for(:freight, html: {class: "form-horizontal"}) do |freight_builder| %>
+      <div class="col-md-6">
+        <div class="well">
+          <fieldset>
+            <legend><%= t(".buyer_data") %></legend>
+          </fieldset>
+
+          <div class="field form-group">
+            <div class="col-md-6">
+              <%= freight_builder.label :subtotal, class: "control-label" %>
+              <%= freight_builder.text_field :subtotal, class: "form-control" %>
+            </div>
+
+            <div class="col-md-6">
+              <%= freight_builder.label :ferry, class: "control-label" %>
+              <%= freight_builder.text_field :ferry, class: "form-control" %>
+            </div>
+
+            <div class="col-md-6">
+              <%= freight_builder.label :platform, class: "control-label" %>
+              <%= freight_builder.text_field :platform, class: "form-control" %>
+            </div>
+
+            <div class="col-md-6">
+              <%= freight_builder.label :redispatching, class: "control-label" %>
+              <%= freight_builder.text_field :redispatching, class: "form-control" %>
+            </div>
+
+            <div class="col-md-6">
+              <%= freight_builder.label :platform_origin, class: "control-label" %>
+              <%= freight_builder.text_field :platform_origin, class: "form-control" %>
+            </div>
+
+            <div class="col-md-6">
+              <%= freight_builder.label :platform_destination, class: "control-label" %>
+              <%= freight_builder.text_field :platform_destination, class: "form-control" %>
+            </div>
+
+            <div class="col-md-6">
+              <%= freight_builder.label :discount, class: "control-label text-danger" %>
+              <%= freight_builder.text_field :discount, class: "form-control" %>
+            </div>
+
+            <div class="col-md-12">
+              <%= freight_builder.label :observation, class: "control-label" %>
+              <%= freight_builder.text_area :observation, class: "form-control", rows: 5 %>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    <% end %>
+
     <%= f.hidden_field :buyer_type %>
     <%= button_tag(:save, type: "submit", class: "btn btn-primary") %>
   <% end %>

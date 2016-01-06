@@ -11,6 +11,7 @@ class CarsController < ApplicationController
   def new
     @car = Car.new
     @buyer = @car.buyer = Company.new
+    @freight = @car.build_freight
   end
 
   def create
@@ -52,7 +53,8 @@ class CarsController < ApplicationController
   end
 
   def car_params
-    params.require(:car).permit(:id, :plate, :model, :buyer_id, :delivery_status, :purchase_date, :expected_end_date, :buyer_type)
+    params.require(:car).permit(:id, :plate, :model, :buyer_id, :delivery_status, :purchase_date, :expected_end_date, :buyer_type,
+      freight_attributes: [:id, :subtotal, :ferry, :platform, :platform_origin, :platform_destination, :redispatching, :observation, :discount])
   end
 
   def buyer_params

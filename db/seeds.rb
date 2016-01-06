@@ -35,11 +35,11 @@ module BRPopulate
         c.capital = capital?(city, state)
         c.save
       end
-    end unless State.exists? && City.exists?
+    end
   end
 end
 
-BRPopulate.populate
+BRPopulate.populate unless State.exists? && City.exists?
 
 puts "Generating 50 cars and buyers..."
 50.times do |count|

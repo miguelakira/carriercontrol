@@ -7,6 +7,7 @@ class CreateFreights < ActiveRecord::Migration
       t.decimal :redispatching, precision: 8, scale: 2
       t.decimal :platform_origin, precision: 8, scale: 2
       t.decimal :platform_destination, precision: 8, scale: 2
+      t.decimal :discount, precision: 8, scale: 2
       t.string :observation
       t.belongs_to :car, index: true
 

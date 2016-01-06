@@ -5,8 +5,9 @@ class Car < ActiveRecord::Base
 
   has_enumeration_for :delivery_status, with: DeliveryStatus, create_helpers: true
 
+  has_one :freight
   belongs_to :buyer, polymorphic: true
-  accepts_nested_attributes_for :buyer
+  accepts_nested_attributes_for :buyer, :freight
 
   default_scope { order "created_at DESC" }
 

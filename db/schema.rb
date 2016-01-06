@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 20160106150358) do
     t.decimal  "redispatching",        precision: 8, scale: 2
     t.decimal  "platform_origin",      precision: 8, scale: 2
     t.decimal  "platform_destination", precision: 8, scale: 2
+    t.decimal  "discount",             precision: 8, scale: 2
     t.string   "observation"
     t.integer  "car_id"
     t.datetime "created_at",                                   null: false
