@@ -87,16 +87,16 @@ ActiveRecord::Schema.define(version: 20160106150358) do
   end
 
   create_table "freights", force: :cascade do |t|
-    t.decimal  "subtotal"
-    t.decimal  "ferry"
-    t.decimal  "platform"
-    t.decimal  "redispatching"
-    t.decimal  "platform_origin"
-    t.decimal  "platform_destination"
+    t.decimal  "subtotal",             precision: 8, scale: 2
+    t.decimal  "ferry",                precision: 8, scale: 2
+    t.decimal  "platform",             precision: 8, scale: 2
+    t.decimal  "redispatching",        precision: 8, scale: 2
+    t.decimal  "platform_origin",      precision: 8, scale: 2
+    t.decimal  "platform_destination", precision: 8, scale: 2
     t.string   "observation"
     t.integer  "car_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
   end
 
   add_index "freights", ["car_id"], name: "index_freights_on_car_id", using: :btree
