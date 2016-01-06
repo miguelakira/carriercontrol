@@ -67,10 +67,9 @@
         </div>
       </div>
     </div>
-
     <%= render partial: "#{@car.buyer_type.underscore}_form", locals: {f: f} %>
-
-  <%= button_tag(:save, type: "submit", class: "btn btn-primary") %>
+    <%= f.hidden_field :buyer_type %>
+    <%= button_tag(:save, type: "submit", class: "btn btn-primary") %>
   <% end %>
 </div>
 

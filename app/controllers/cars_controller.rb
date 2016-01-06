@@ -56,7 +56,7 @@ class CarsController < ApplicationController
   end
 
   def buyer_params
-    buyer_params = params.require(:car).permit(buyer_attributes: [:id, :name, :cpf, :cnpj])
+    buyer_params = params.require(:car).permit(buyer_attributes: [:id, :name, :cpf, :cnpj, :legal_name, :phone, :email])
     buyer_params[:buyer_attributes]
   end
 

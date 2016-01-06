@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160106011812) do
+ActiveRecord::Schema.define(version: 20160106150358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,10 +80,26 @@ ActiveRecord::Schema.define(version: 20160106011812) do
     t.string   "email"
     t.string   "name"
     t.string   "cnpj"
-    t.string   "company_name"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "legal_name"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "observation"
   end
+
+  create_table "freights", force: :cascade do |t|
+    t.decimal  "subtotal"
+    t.decimal  "ferry"
+    t.decimal  "platform"
+    t.decimal  "redispatching"
+    t.decimal  "platform_origin"
+    t.decimal  "platform_destination"
+    t.string   "observation"
+    t.integer  "car_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "freights", ["car_id"], name: "index_freights_on_car_id", using: :btree
 
   create_table "people", force: :cascade do |t|
     t.string   "phone"
@@ -91,8 +107,9 @@ ActiveRecord::Schema.define(version: 20160106011812) do
     t.string   "name"
     t.string   "rg"
     t.string   "cpf"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "observation"
   end
 
   create_table "routes", force: :cascade do |t|
@@ -110,9 +127,9 @@ ActiveRecord::Schema.define(version: 20160106011812) do
 
   create_table "states", force: :cascade do |t|
     t.string   "name"
+    t.string   "acronym"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "acronym"
   end
 
 end
