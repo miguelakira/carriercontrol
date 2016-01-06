@@ -18,6 +18,9 @@ pt-BR:
         plate: Placa
         model: Modelo
         delivery_status: Status
+        purchase_date: Data da Compra
+        expected_end_date: Previsão de Entrega
+        observation: Observação
       person:
         name: Nome
         cpf: CPF
@@ -32,10 +35,13 @@ pt-BR:
         email: Email
 
   cars:
+    new:
+      new_car: Criando Carro
     edit:
+      editing_car: Editando Carro
+    form:
       car_data: Dados do Veículo
       check_errors: ao salvar o carro. Por favor verifique.
-      editing_car: Editando Carro
 
   enumerations:
     delivery_status:
