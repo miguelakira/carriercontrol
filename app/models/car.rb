@@ -8,9 +8,9 @@ class Car < ActiveRecord::Base
   belongs_to :buyer, polymorphic: true
   accepts_nested_attributes_for :buyer
 
-  default_scope { order "updated_at DESC" }
+  default_scope { order "created_at DESC" }
 
-  before_save :uppercase_plates
+  before_validation :uppercase_plates
   after_initialize :set_purchase_date_to_today, if: :new_record?
 
   validates :plate, presence: true, uniqueness: true
