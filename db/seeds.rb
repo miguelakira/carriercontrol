@@ -53,6 +53,7 @@ puts "Generating 50 cars and buyers..."
   end
   plate = "#{(0...3).map { (65 + rand(26)).chr }.join}-#{Faker::Number.number(4)}"
   car = Car.create(plate: plate, model: Faker::Hipster.words(2).join(" "), buyer: @buyer, delivery_status: Faker::Number.between(1,8))
+  car.create_freight(subtotal: Faker::Commerce.price, ferry: Faker::Commerce.price, platform: Faker::Commerce.price, redispatching: Faker::Commerce.price, platform_origin: Faker::Commerce.price, platform_destination: Faker::Commerce.price, discount: Faker::Commerce.price)
 end
 
 puts "Done!"
