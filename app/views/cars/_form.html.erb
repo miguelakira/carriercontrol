@@ -113,11 +113,15 @@
               <%= freight_builder.text_field :discount, class: "form-control" %>
             </div>
 
+            <div class="col-md-6">
+              <label class="control-label"></label>
+              <p class="form-text text-right"><span class="text-primary">Total:</span> <%= number_to_currency(@freight.total) %></p>
+            </div>
+
             <div class="col-md-12">
               <%= freight_builder.label :observation, class: "control-label" %>
               <%= freight_builder.text_area :observation, class: "form-control", rows: 5 %>
             </div>
-
 
           </div>
         </div>

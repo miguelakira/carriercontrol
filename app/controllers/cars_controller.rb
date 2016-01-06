@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-  before_action :set_car_and_buyer, only: [:edit, :update]
+  before_action :set_car, only: [:edit, :update]
 
   def index
     @cars = Car.all.includes(:buyer)
@@ -47,8 +47,9 @@ class CarsController < ApplicationController
 
   private
 
-  def set_car_and_buyer
+  def set_car
     @car = Car.find params[:id]
+    @freight = @car.freight
     @buyer = @car.buyer
   end
 
