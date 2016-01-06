@@ -12,6 +12,7 @@ pt-BR:
       buyer: Comprador
       person: Pessoa
       company: Empresa
+      freight: Frete
     attributes:
       car:
         id: ID
@@ -30,9 +31,19 @@ pt-BR:
         email: Email
       company:
         name: Nome Fantasia
-        company_name: Razão Social
+        legal_name: Razão Social
         cnpj: CNPJ
         email: Email
+        phone: Telefone Fixo
+      freight:
+        subtotal: Valor do Frete
+        ferry: Taxa da Balsa
+        platform: Taxa de Plataforma
+        redispatching: Taxa de Redespacho
+        platform_origin: Taxa de Plataforma de Origem
+        platform_destination: Taxa de Plataforma de Destino
+        discount: Desconto
+        observation: Observação
 
   cars:
     new:
@@ -42,6 +53,12 @@ pt-BR:
     form:
       car_data: Dados do Veículo
       check_errors: ao salvar o carro. Por favor verifique.
+      total: "Total: "
+      freight_data: Dados do Frete
+    person_form:
+      buyer_data: Dados do Comprador
+    company_form:
+      buyer_data: Dados da Empresa
 
   enumerations:
     delivery_status:
