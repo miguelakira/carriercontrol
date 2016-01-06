@@ -44,16 +44,15 @@ BRPopulate.populate
 puts "Generating 50 cars and buyers..."
 50.times do |count|
 
-  buyer = ""
   if count % 2 == 0
-    buyer = Person.create(name: "nome #{count}", email: "email #{count}", rg: "rg #{count}", cpf: "cpf #{count}")
+    name = Faker::Name.name
+    @buyer = Person.create(name: name, email: Faker::Internet.email(name), rg: Faker::Number.number(9), cpf: Faker::Number.number(11), phone: Faker::PhoneNumber.phone_number)
   else
-    buyer = Company.create(name: "nome companhia #{count}", cnpj: "cnpj #{count}", email: "email #{count}")
+    name = Faker::Company.name
+    @buyer = Company.create(name: name, cnpj: Faker::Number.number(14), email: Faker::Internet.email(name), phone: Faker::PhoneNumber.phone_number)
   end
-  rand_plate = "#{(0...3).map { (65 + rand(26)).chr }.join}-#{rand(1000...9999)}"
-  puts rand_plate
-  car = Car.create(plate: rand_plate, model: "modelo-#{count}", buyer: buyer)
-  puts car.inspect
+  plate = "#{(0...3).map { (65 + rand(26)).chr }.join}-#{Faker::Number.number(4)}"
+  car = Car.create(plate: plate, model: Faker::Hipster.words(2).join(" "), buyer: @buyer, delivery_status: Faker::Number.between(1,8))
 end
 
 puts "Done!"

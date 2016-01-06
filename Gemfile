@@ -20,6 +20,8 @@ gem "enumerate_it"
 gem "ejs"
 gem "ngannotate-rails"
 
+gem "faker"
+
 group :development, :test do
   gem "byebug"
   gem "better_errors"
