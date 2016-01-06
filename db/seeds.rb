@@ -50,8 +50,10 @@ puts "Generating 50 cars and buyers..."
   else
     buyer = Company.create(name: "nome companhia #{count}", cnpj: "cnpj #{count}", email: "email #{count}")
   end
-
-  Car.create(plate: "placa-#{count}", model: "modelo-#{count}", buyer: buyer)
+  rand_plate = "#{(0...3).map { (65 + rand(26)).chr }.join}-#{rand(1000...9999)}"
+  puts rand_plate
+  car = Car.create(plate: rand_plate, model: "modelo-#{count}", buyer: buyer)
+  puts car.inspect
 end
 
 puts "Done!"
