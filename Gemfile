@@ -22,6 +22,7 @@ gem "ngannotate-rails"
 
 group :development, :test do
   gem "byebug"
+  gem "better_errors"
 end
 
 group :development do
