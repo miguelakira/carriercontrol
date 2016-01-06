@@ -11,9 +11,9 @@
  * file per style scope.
  *
  *= require bootswatch-dist/css/bootstrap
- *= require cars
  *= require eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker
  *= require_self
+ *= require_directory .
  */
 
 body {
@@ -30,3 +30,4 @@ body {
   display: flex;
   flex: 1 1 auto;
 }
+
