@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160106150358) do
+ActiveRecord::Schema.define(version: 20160108173555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 20160106150358) do
   create_table "cars", force: :cascade do |t|
     t.string   "plate"
     t.string   "model"
-    t.integer  "buyer_id"
-    t.string   "buyer_type"
+    t.integer  "client_id"
+    t.string   "client_type"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.integer  "delivery_status"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20160106150358) do
     t.string   "observation"
   end
 
-  add_index "cars", ["buyer_type", "buyer_id"], name: "index_cars_on_buyer_type_and_buyer_id", using: :btree
+  add_index "cars", ["client_type", "client_id"], name: "index_cars_on_client_type_and_client_id", using: :btree
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -98,9 +98,27 @@ ActiveRecord::Schema.define(version: 20160106150358) do
     t.integer  "car_id"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
+    t.integer  "client_id"
+    t.string   "client_type"
   end
 
   add_index "freights", ["car_id"], name: "index_freights_on_car_id", using: :btree
+  add_index "freights", ["client_id"], name: "index_freights_on_client_id", using: :btree
+
+  create_table "payments", force: :cascade do |t|
+    t.decimal  "value",        precision: 8, scale: 2
+    t.string   "type"
+    t.date     "fulfilled_at"
+    t.boolean  "fulfilled"
+    t.integer  "client_id"
+    t.string   "client_type"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.string   "observation"
+    t.date     "date"
+  end
+
+  add_index "payments", ["client_type", "client_id"], name: "index_payments_on_client_type_and_client_id", using: :btree
 
   create_table "people", force: :cascade do |t|
     t.string   "phone"

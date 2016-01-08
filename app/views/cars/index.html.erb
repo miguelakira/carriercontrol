@@ -8,7 +8,7 @@
             <th><%= I18n.t "activerecord.attributes.car.id" %></th>
             <th><%= I18n.t "activerecord.attributes.car.plate" %></th>
             <th><%= I18n.t "activerecord.attributes.car.model" %></th>
-            <th><%= I18n.t "activerecord.models.buyer" %></th>
+            <th><%= I18n.t "activerecord.models.client" %></th>
             <th></th>
           </tr>
         </thead>
@@ -18,7 +18,7 @@
               <td data-toggle="collapse" data-target="#car-<%= car.id %>" ><%= car.id %></td>
               <td data-toggle="collapse" data-target="#car-<%= car.id %>" ><%= car.plate %></td>
               <td data-toggle="collapse" data-target="#car-<%= car.id %>" ><%= car.model %></td>
-              <td data-toggle="collapse" data-target="#car-<%= car.id %>" ><%= car.buyer.name if car.buyer %></td>
+              <td data-toggle="collapse" data-target="#car-<%= car.id %>" ><%= car.client.name if car.client %></td>
               <td>
                 <%= link_to edit_car_path(car.id), class: "btn btn-default btn-sm", "aria-abel": "Right Align" do %>
                   <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>

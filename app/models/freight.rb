@@ -1,5 +1,6 @@
 class Freight < ActiveRecord::Base
   belongs_to :car
+  belongs_to :client, polymorphic: true
 
   def total
     discount_value = (discount || 0) * -1

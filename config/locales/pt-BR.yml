@@ -9,10 +9,11 @@ pt-BR:
           has_many: Não é possível excluir o registro pois existem %{record} dependentes
     models:
       car: Carro
-      buyer: Comprador
+      client: Cliente
       person: Pessoa
       company: Empresa
       freight: Frete
+      payment: Pagamento
     attributes:
       car:
         id: ID
@@ -29,6 +30,9 @@ pt-BR:
         phone: Telefone Fixo
         cellphone: Telefone Celular
         email: Email
+        total_debt: Dívida Total
+        total_payment: Pagamento Total
+        active_cars: Carros Ativos
       company:
         name: Nome Fantasia
         legal_name: Razão Social
@@ -44,7 +48,15 @@ pt-BR:
         platform_destination: Taxa de Plataforma de Destino
         discount: Desconto
         observation: Observação
+      payment:
+        value: Valor do Novo Pagamento
+        type: Forma do Novo Pagamento
+        observation: Observação
+        date: Data do Pagamento
+        fulfilled: Efetivado?
 
+  controllers:
+    finances: Controle Financeiro
   cars:
     new:
       new_car: Criando Carro
@@ -56,9 +68,9 @@ pt-BR:
       total: "Total: "
       freight_data: Dados do Frete
     person_form:
-      buyer_data: Dados do Comprador
+      client_data: Dados do Cliente
     company_form:
-      buyer_data: Dados da Empresa
+      client_data: Dados da Empresa
 
   enumerations:
     delivery_status:

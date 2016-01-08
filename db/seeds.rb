@@ -41,18 +41,18 @@ end
 
 BRPopulate.populate unless State.exists? && City.exists?
 
-puts "Generating 50 cars and buyers..."
+puts "Generating 50 cars and clients..."
 50.times do |count|
 
   if count % 2 == 0
     name = Faker::Name.name
-    @buyer = Person.create(name: name, email: Faker::Internet.email(name), rg: Faker::Number.number(9), cpf: Faker::Number.number(11), phone: Faker::PhoneNumber.phone_number)
+    @client = Person.create(name: name, email: Faker::Internet.email(name), rg: Faker::Number.number(9), cpf: Faker::Number.number(11), phone: Faker::PhoneNumber.phone_number)
   else
     name = Faker::Company.name
-    @buyer = Company.create(name: name, cnpj: Faker::Number.number(14), email: Faker::Internet.email(name), phone: Faker::PhoneNumber.phone_number)
+    @client = Company.create(name: name, cnpj: Faker::Number.number(14), email: Faker::Internet.email(name), phone: Faker::PhoneNumber.phone_number)
   end
   plate = "#{(0...3).map { (65 + rand(26)).chr }.join}-#{Faker::Number.number(4)}"
-  car = Car.create(plate: plate, model: Faker::Hipster.words(2).join(" "), buyer: @buyer, delivery_status: Faker::Number.between(1,8))
+  car = Car.create(plate: plate, model: Faker::Hipster.words(2).join(" "), client: @client, delivery_status: Faker::Number.between(0,6))
   car.create_freight(subtotal: Faker::Commerce.price, ferry: Faker::Commerce.price, platform: Faker::Commerce.price, redispatching: Faker::Commerce.price, platform_origin: Faker::Commerce.price, platform_destination: Faker::Commerce.price, discount: Faker::Commerce.price)
 end
 
