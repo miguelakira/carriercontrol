@@ -6,6 +6,7 @@ class Car < ActiveRecord::Base
   has_enumeration_for :delivery_status, with: DeliveryStatus, create_helpers: true
 
   has_one :freight
+  has_one :location
   belongs_to :client, polymorphic: true
   has_many :payments, through: :client
   accepts_nested_attributes_for :client, :freight

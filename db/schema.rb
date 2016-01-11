@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160108173555) do
+ActiveRecord::Schema.define(version: 20160110235700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,6 +104,20 @@ ActiveRecord::Schema.define(version: 20160108173555) do
 
   add_index "freights", ["car_id"], name: "index_freights_on_car_id", using: :btree
   add_index "freights", ["client_id"], name: "index_freights_on_client_id", using: :btree
+
+  create_table "locations", force: :cascade do |t|
+    t.integer  "car_id"
+    t.integer  "origin_id"
+    t.integer  "destination_id"
+    t.integer  "current_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "locations", ["car_id"], name: "index_locations_on_car_id", using: :btree
+  add_index "locations", ["current_id"], name: "index_locations_on_current_id", using: :btree
+  add_index "locations", ["destination_id"], name: "index_locations_on_destination_id", using: :btree
+  add_index "locations", ["origin_id"], name: "index_locations_on_origin_id", using: :btree
 
   create_table "payments", force: :cascade do |t|
     t.decimal  "value",        precision: 8, scale: 2
