@@ -1,7 +1,9 @@
 (function(angular) {
   "user strict";
   angular.module("carrierApp", [
-    "controllers.cars",
-    "ui.bootstrap"
+    "controllers.editCars",
+    "ngSanitize",
+    "ui.bootstrap",
+    "ui.select"
     ]);
 })(window.angular);

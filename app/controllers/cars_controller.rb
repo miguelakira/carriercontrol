@@ -6,6 +6,7 @@ class CarsController < ApplicationController
   end
 
   def edit
+    @states = State.all
   end
 
   def new
@@ -13,6 +14,7 @@ class CarsController < ApplicationController
     @client = @car.client = Person.new
     @freight = @car.build_freight
     @location = @car.build_location
+    @states = State.all
   end
 
   def create

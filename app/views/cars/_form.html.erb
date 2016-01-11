@@ -130,9 +130,30 @@
       </div>
     <% end %>
 
+    <div class="col-md-6">
+    <div class="well">
+      <fieldset>
+        <legend><%= t(".freight_data") %></legend>
+      </fieldset>
+        <div class="field form-group">
+          <ui-select ng-model="selectedState" style="200px">
+            <ui-select-match placeholder="Todos" allow-clear="true">{{$select.selected.name}}</ui-select-match>
+            <ui-select-choices repeat="state in states | filter: $select.search">
+              <span ng-bind-html="state.name"></span>
+            </ui-select-choices>
+          </ui-select>
+        </div>
+    </div>
+  </div>
+
     <%= f.hidden_field :client_type %>
     <%= button_tag(:save, type: "submit", class: "btn btn-primary") %>
   <% end %>
 </div>
-
+<%= content_for :javascript do %>
+  <script type="text/javascript">
+    angular.module("controllers.editCars")
+      .value("statesJson", <%= @states.to_json.html_safe %>);
+  </script>
+<% end -%>
 
