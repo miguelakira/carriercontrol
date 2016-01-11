@@ -12,6 +12,7 @@ class CarsController < ApplicationController
     @car = Car.new
     @client = @car.client = Person.new
     @freight = @car.build_freight
+    @location = @car.build_location
   end
 
   def create
