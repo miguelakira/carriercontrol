@@ -130,22 +130,26 @@
       </div>
     <% end %>
 
-    <div class="col-md-6">
-    <div class="well">
-      <fieldset>
-        <legend><%= t(".freight_data") %></legend>
-      </fieldset>
-        <div class="field form-group">
-          <ui-select ng-model="selectedState" style="200px">
-            <ui-select-match placeholder="Todos" allow-clear="true">{{$select.selected.name}}</ui-select-match>
-            <ui-select-choices repeat="state in states | filter: $select.search">
-              <span ng-bind-html="state.name"></span>
-            </ui-select-choices>
-          </ui-select>
-        </div>
-    </div>
-  </div>
 
+    <%= f.fields_for(@location, html: {class: "form-horizontal", :"data-post-form" => @location.id || 0}) do |location_builder| %>
+      <div class="col-md-6">
+        <div class="well">
+          <fieldset>
+            <legend><%= t(".location_data") %></legend>
+          </fieldset>
+            <div class="field form-group">
+              <%= location_builder.collection_select :origin, @states, :id, :name, {}, { :"ng-model" => "location", :"ng-change" => "update(location)"} %>
+            </div>
+            {{ selectedCity }}
+
+            <select name="car[location][origin_id]" id="car_location_origin_id" ng-model="selectedCity">
+
+              <option ng-repeat="city in cities" value="{{city.id}}">{{city.name}}</option>
+            </select>
+        </div>
+      </div>
+
+    <% end -%>
     <%= f.hidden_field :client_type %>
     <%= button_tag(:save, type: "submit", class: "btn btn-primary") %>
   <% end %>

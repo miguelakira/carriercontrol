@@ -8,4 +8,7 @@ Rails.application.routes.draw do
 
   resources :cars
   resources :finances
+
+  get "/cities/:id", to: "locations#index"
+
 end

@@ -14,11 +14,9 @@
     "angular-bootstrap": "~0.13.0",
     "angular-i18n": "~1.4.3",
     "angular-ui-router": "~0.2.15",
-    "angular-ui-select": "0.13.1",
     "bootswatch-dist": "~3.3.6-flatly",
     "eonasdan-bootstrap-datetimepicker": "4.17.37",
     "font-awesome": "~4.3.0",
-    "angular-sanitize": "~1.5",
     "sugar": "~1.4.1"
   },
   "license": "MIT",
@@ -29,5 +27,8 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "resolutions": {
+    "angular": "~1.4.3"
+  }
 }

@@ -7,17 +7,20 @@ class CarsController < ApplicationController
 
   def edit
     @states = State.all
+    @location = @car.build_location
   end
 
   def new
     @car = Car.new
     @client = @car.client = Person.new
     @freight = @car.build_freight
-    @location = @car.build_location
     @states = State.all
+    @location = @car.build_location
+
   end
 
   def create
+    raise params.inspect
     @car = Car.new(car_params)
     @client = @car.build_client(client_params)
 
@@ -33,6 +36,7 @@ class CarsController < ApplicationController
   end
 
   def update
+    raise params.inspect
     respond_to do |format|
       if @car.update(car_and_client_params)
         format.html { redirect_to cars_path, notice: "Carro editado com sucesso" }

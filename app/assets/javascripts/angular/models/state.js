@@ -20,15 +20,15 @@
           acronym: this.acronym ? this.acronym : null,
         }
       };
-    };
+    }
 
-    State.prototype.fromJson = function(json) {
+    State.fromJson = function(json) {
       return new State({
         id: json.id,
         name: json.name,
         acronym: json.acronym
       });
-    };
+    }
 
     return State;
   });

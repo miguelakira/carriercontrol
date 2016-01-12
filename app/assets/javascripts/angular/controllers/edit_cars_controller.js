@@ -1,15 +1,22 @@
 (function(angular) {
   "use strict";
 
-  angular.module("controllers.editCars", ["models.state"])
+  angular.module("controllers.editCars", ["models.state", "services.location"])
   .controller("editCarsController", function(
     $scope,
     $filter,
     State,
-    statesJson
+    statesJson,
+    locationService
     ) {
+      $scope.selectedCity = null;
       $scope.states = statesJson.map(State.fromJson);
       $scope.selectedState = $scope.states[0];
-      console.log($scope.selectedState)
+
+      $scope.update = function(stateId) {
+        locationService.listCities(stateId).then(function(cities) {
+          $scope.cities = cities;
+        });
+      };
   });
 })(window.angular);
