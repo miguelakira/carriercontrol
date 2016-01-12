@@ -9,7 +9,7 @@ class Car < ActiveRecord::Base
   has_one :location
   belongs_to :client, polymorphic: true
   has_many :payments, through: :client
-  accepts_nested_attributes_for :client, :freight
+  accepts_nested_attributes_for :client, :freight, :location
 
   default_scope { order "created_at DESC" }
 

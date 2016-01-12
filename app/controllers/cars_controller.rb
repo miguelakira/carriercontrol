@@ -7,7 +7,6 @@ class CarsController < ApplicationController
 
   def edit
     @states = State.all
-    @location = @car.build_location
   end
 
   def new
@@ -16,11 +15,10 @@ class CarsController < ApplicationController
     @freight = @car.build_freight
     @states = State.all
     @location = @car.build_location
-
   end
 
   def create
-    raise params.inspect
+
     @car = Car.new(car_params)
     @client = @car.build_client(client_params)
 
@@ -36,7 +34,6 @@ class CarsController < ApplicationController
   end
 
   def update
-    raise params.inspect
     respond_to do |format|
       if @car.update(car_and_client_params)
         format.html { redirect_to cars_path, notice: "Carro editado com sucesso" }
@@ -62,7 +59,9 @@ class CarsController < ApplicationController
 
   def car_params
     params.require(:car).permit(:id, :plate, :model, :client_id, :delivery_status, :purchase_date, :expected_end_date, :client_type,
-      freight_attributes: [:id, :subtotal, :ferry, :platform, :platform_origin, :platform_destination, :redispatching, :observation, :discount])
+      freight_attributes: [:id, :subtotal, :ferry, :platform, :platform_origin, :platform_destination, :redispatching, :observation, :discount],
+      location_attributes: [:id, :origin_id, :destination_id, :current_id]
+      )
   end
 
   def client_params

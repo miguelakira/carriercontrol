@@ -9,14 +9,21 @@
     statesJson,
     locationService
     ) {
-      $scope.selectedCity = null;
       $scope.states = statesJson.map(State.fromJson);
-      $scope.selectedState = $scope.states[0];
 
-      $scope.update = function(stateId) {
-        locationService.listCities(stateId).then(function(cities) {
-          $scope.cities = cities;
-        });
+      $scope.update = function(location, stateId) {
+
+        switch(location) {
+        case "origin":
+          locationService.listCities(stateId).then(function(cities) { $scope.originCities = cities });
+          break;
+        case "destination":
+          locationService.listCities(stateId).then(function(cities) { $scope.destinationCities = cities });
+          break;
+        case "current":
+          locationService.listCities(stateId).then(function(cities) { $scope.currentCities = cities });
+          break;
+        }
       };
   });
 })(window.angular);
