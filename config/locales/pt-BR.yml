@@ -24,6 +24,10 @@ pt-BR:
         purchase_date: Data da Compra
         expected_end_date: Previsão de Entrega
         observation: Observação
+      client:
+        phone: Telefone
+        cellphone: Celular
+        document: CPF/CNPJ
       company:
         name: Nome Fantasia
         legal_name: Razão Social
@@ -39,6 +43,7 @@ pt-BR:
         platform_destination: Taxa de Plataforma de Destino
         discount: Desconto
         observation: Observação
+        total: Frete Total
       location:
         origin_state: Estado de Origem
         origin_city: Cidade de Origem

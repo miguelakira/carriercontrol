@@ -9,8 +9,8 @@ class Person < ActiveRecord::Base
   validates :email, presence: true
   validates :phone, presence: true
 
-  def documents
-    { rg: rg, cpf: cpf }
+  def document
+    cpf
   end
 
   def document_name
