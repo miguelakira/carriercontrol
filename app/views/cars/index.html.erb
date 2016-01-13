@@ -8,6 +8,10 @@
             <th><%= I18n.t "activerecord.attributes.car.id" %></th>
             <th><%= I18n.t "activerecord.attributes.car.plate" %></th>
             <th><%= I18n.t "activerecord.attributes.car.model" %></th>
+            <th><%= I18n.t "activerecord.models.location" %></th>
+            <th><%= I18n.t "activerecord.models.client.telephone" %></th>
+            <th><%= I18n.t "activerecord.models.client" %></th>
+            <th><%= I18n.t "activerecord.models.client" %></th>
             <th><%= I18n.t "activerecord.models.client" %></th>
             <th></th>
           </tr>
@@ -19,7 +23,11 @@
               <td data-toggle="modal" data-target="#car-<%= car.id %>-modal" ><%= car.id %></td>
               <td data-toggle="modal" data-target="#car-<%= car.id %>-modal" ><%= car.plate %></td>
               <td data-toggle="modal" data-target="#car-<%= car.id %>-modal" ><%= car.model %></td>
-              <td data-toggle="modal" data-target="#car-<%= car.id %>-modal" ><%= car.client.name if car.client %></td>
+              <td data-toggle="modal" data-target="#car-<%= car.id %>-modal" ><%= car.location.full :current %></td>
+              <td data-toggle="modal" data-target="#car-<%= car.id %>-modal" ><%= car.client.name %></td>
+              <td data-toggle="modal" data-target="#car-<%= car.id %>-modal" ><%= car.client.name %></td>
+              <td data-toggle="modal" data-target="#car-<%= car.id %>-modal" ><%= car.client.name %></td>
+              <td data-toggle="modal" data-target="#car-<%= car.id %>-modal" ><%= car.client.name %></td>
               <td>
                 <%= link_to edit_car_path(car.id), class: "btn btn-default btn-sm", "aria-abel": "Right Align" do %>
                   <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
