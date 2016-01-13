@@ -68,7 +68,7 @@
       </div>
     </div>
 
-    <%= render partial: "#{@car.client_type.underscore}_form", locals: {f: f} %>
+    <%= render partial: "/cars/forms/#{@car.client_type.underscore}_form", locals: {f: f} %>
 
     <%= f.fields_for(:freight, html: {class: "form-horizontal"}) do |freight_builder| %>
       <div class="col-md-6">
@@ -130,7 +130,8 @@
       </div>
     <% end %>
 
-    <%= render partial: "location_form", locals: { f: f } %>
+    <%= render partial: "/cars/forms/location_form", locals: { f: f } %>
+
     <%= f.hidden_field :client_type %>
     <%= button_tag(:save, type: "submit", class: "btn btn-primary") %>
   <% end %>
