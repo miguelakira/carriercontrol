@@ -10,10 +10,11 @@ pt-BR:
     models:
       car: Carro
       client: Cliente
-      person: Pessoa
       company: Empresa
       freight: Frete
+      location: Localização
       payment: Pagamento
+      person: Pessoa
     attributes:
       car:
         id: ID
@@ -23,16 +24,6 @@ pt-BR:
         purchase_date: Data da Compra
         expected_end_date: Previsão de Entrega
         observation: Observação
-      person:
-        name: Nome
-        cpf: CPF
-        rg: RG
-        phone: Telefone Fixo
-        cellphone: Telefone Celular
-        email: Email
-        total_debt: Dívida Total
-        total_payment: Pagamento Total
-        active_cars: Carros Ativos
       company:
         name: Nome Fantasia
         legal_name: Razão Social
@@ -48,12 +39,30 @@ pt-BR:
         platform_destination: Taxa de Plataforma de Destino
         discount: Desconto
         observation: Observação
+      location:
+        origin_state: Estado de Origem
+        origin_city: Cidade de Origem
+        destination_state: Estado de Destino
+        destination_city: Cidade de Destino
+        current_state: Estado Atual
+        current_city: Cidade Atual
       payment:
         value: Valor do Novo Pagamento
         type: Forma do Novo Pagamento
         observation: Observação
         date: Data do Pagamento
         fulfilled: Efetivado?
+      person:
+        name: Nome
+        cpf: CPF
+        rg: RG
+        phone: Telefone Fixo
+        cellphone: Telefone Celular
+        email: Email
+        total_debt: Dívida Total
+        total_payment: Pagamento Total
+        active_cars: Carros Ativos
+
 
   controllers:
     finances: Controle Financeiro
@@ -71,6 +80,8 @@ pt-BR:
       client_data: Dados do Cliente
     company_form:
       client_data: Dados da Empresa
+    location_form:
+      location_data: Dados de Localização
 
   enumerations:
     delivery_status:

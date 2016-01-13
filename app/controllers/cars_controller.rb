@@ -6,14 +6,12 @@ class CarsController < ApplicationController
   end
 
   def edit
-    @states = State.all
   end
 
   def new
     @car = Car.new
     @client = @car.client = Person.new
     @freight = @car.build_freight
-    @states = State.all
     @location = @car.build_location
   end
 
@@ -55,6 +53,8 @@ class CarsController < ApplicationController
     @car = Car.find params[:id]
     @freight = @car.freight
     @client = @car.client
+    @location = @car.location
+    @states = State.all
   end
 
   def car_params

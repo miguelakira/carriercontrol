@@ -1,0 +1,75 @@
+<%= f.fields_for(:location, html: {class: "form-horizontal"}) do |location_builder| %>
+  <div class="col-md-6">
+    <div class="well">
+      <fieldset>
+        <legend><%= t(".location_data") %></legend>
+      </fieldset>
+      <div class="field form-group">
+        <div class="col-md-6">
+          <%= location_builder.label :origin_state, class: "control-label" %>
+          <select name="car_state_origin"
+            id="car_location_origin_id"
+            ng-model="originState"
+            ng-change="update('origin')"
+            ng-options="state.name for state in states track by state.id"
+            class="form-control">
+          </select>
+        </div>
+        <div class="col-md-6">
+          <%= location_builder.label :origin_city, class: "control-label" %>
+          <select name="car[location_attributes][origin_id]"
+            id="car_location_origin_id"
+            ng-model="origin"
+            ng-options="city.name for city in originCities track by city.id"
+            class="form-control">
+          </select>
+        </div>
+      </div>
+
+      <div class="field form-group">
+        <div class="col-md-6">
+          <%= location_builder.label :destination_state, class: "control-label" %>
+          <select name="car_state_destination"
+            id="car_location_destination_id"
+            ng-model="destinationState"
+            ng-change="update('destination')"
+            ng-options="state.name for state in states track by state.id"
+            class="form-control">
+          </select>
+        </div>
+        <div class="col-md-6">
+          <%= location_builder.label :destination_city, class: "control-label" %>
+          <select name="car[location_attributes][destination_id]"
+            id="car_location_destination_id"
+            ng-model="destination"
+            ng-options="city.name for city in destinationCities track by city.id"
+            class="form-control">
+          </select>
+        </div>
+      </div>
+
+      <div class="field form-group">
+        <div class="col-md-6">
+          <%= location_builder.label :current_state, class: "control-label" %>
+          <select name="car_state_current"
+            id="car_location_current_id"
+            ng-model="currentState"
+            ng-change="update('current')"
+            ng-options="state.name for state in states track by state.id"
+            class="form-control">
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <%= location_builder.label :current_city, class: "control-label" %>
+          <select name="car[location_attributes][current_id]"
+            id="car_location_current_id"
+            ng-model="current"
+            ng-options="city.name for city in currentCities track by city.id"
+            class="form-control">
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end -%>

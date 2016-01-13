@@ -130,53 +130,7 @@
       </div>
     <% end %>
 
-
-    <%= f.fields_for(:location, html: {class: "form-horizontal"}) do |location_builder| %>
-      <div class="col-md-6">
-        <div class="well">
-          <fieldset>
-            <legend><%= t(".location_data") %></legend>
-          </fieldset>
-          <div class="field form-group">
-            <div class="col-md-6">
-              <%= location_builder.label :origin_state, class: "control-label" %>
-              <%= location_builder.collection_select :origin, @states, :id, :name, {}, { :"ng-model" => "stateOrigin", :"ng-change" => "update('origin', stateOrigin)", class: "form-control"} %>
-            </div>
-            <div class="col-md-6">
-              <%= location_builder.label :origin_city, class: "control-label" %>
-              <select name="car[location_attributes][origin_id]" id="car_location_origin_id" ng-model="selectedOriginCityId" class="form-control">
-                <option ng-repeat="city in originCities" value="{{city.id}}">{{city.name}}</option>
-              </select>
-            </div>
-          </div>
-          <div class="field form-group">
-            <div class="col-md-6">
-              <%= location_builder.label :destination_state, class: "control-label" %>
-              <%= location_builder.collection_select :destination, @states, :id, :name, {}, { :"ng-model" => "stateDestination", :"ng-change" => "update('destination', stateDestination)", class: "form-control"} %>
-            </div>
-            <div class="col-md-6">
-              <%= location_builder.label :destination_city, class: "control-label" %>
-              <select name="car[location_attributes][destination_id]" id="car_location_destination_id" ng-model="selectedDestinationCityId" class="form-control">
-                <option ng-repeat="city in destinationCities" value="{{city.id}}">{{city.name}}</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="field form-group">
-            <div class="col-md-6">
-              <%= location_builder.label :current_state, class: "control-label" %>
-              <%= location_builder.collection_select :current, @states, :id, :name, {}, { :"ng-model" => "stateCurrent", :"ng-change" => "update('current', stateCurrent)", class: "form-control"} %>
-            </div>
-            <div class="col-md-6">
-              <%= location_builder.label :current_city, class: "control-label" %>
-              <select name="car[location_attributes][current_id]" id="car_location_origin_id" ng-model="selectedCurrentCityId" class="form-control">
-                <option ng-repeat="city in currentCities" value="{{city.id}}">{{city.name}}</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end -%>
+    <%= render partial: "location_form", locals: { f: f } %>
     <%= f.hidden_field :client_type %>
     <%= button_tag(:save, type: "submit", class: "btn btn-primary") %>
   <% end %>
@@ -184,7 +138,8 @@
 <%= content_for :javascript do %>
   <script type="text/javascript">
     angular.module("controllers.editCars")
-      .value("statesJson", <%= @states.to_json.html_safe %>);
+      .value("statesJson", <%= @states.to_json.html_safe %>)
+      .value("locationJson", <%= @location.to_json.html_safe %>);
   </script>
 <% end -%>
 
