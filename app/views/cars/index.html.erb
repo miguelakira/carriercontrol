@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" ng-controller="carsController">
   <div class="row">
     <div class="col-lg-12">
       <h1><%= t "activerecord.models.car" %></h1>
@@ -14,11 +14,11 @@
         </thead>
         <tbody>
           <% @cars.each do |car| %>
-            <tr class="accordion-toggle">
-              <td data-toggle="collapse" data-target="#car-<%= car.id %>" ><%= car.id %></td>
-              <td data-toggle="collapse" data-target="#car-<%= car.id %>" ><%= car.plate %></td>
-              <td data-toggle="collapse" data-target="#car-<%= car.id %>" ><%= car.model %></td>
-              <td data-toggle="collapse" data-target="#car-<%= car.id %>" ><%= car.client.name if car.client %></td>
+            <tr class="accordion-toggle" ng-click="openModal()">
+              <td><%= car.id %></td>
+              <td><%= car.plate %></td>
+              <td><%= car.model %></td>
+              <td><%= car.client.name if car.client %></td>
               <td>
                 <%= link_to edit_car_path(car.id), class: "btn btn-default btn-sm", "aria-abel": "Right Align" do %>
                   <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>

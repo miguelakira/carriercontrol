@@ -3,21 +3,32 @@
 
   angular.module("controllers.cars", [
     "models.car",
-    "services.carService"
+    "ui.bootstrap.modal"
   ])
   .controller("carsController", function(
     $scope,
     $filter,
-    Car,
-    carService
+    $modal
+    ) {
+    $scope.openModal = function() {
+      $modal.open({
+        animation: true,
+        template: JST["angular/templates/modals/cars_modal"],
+        controller: "ModalInstanceCtrl"
+      });
+    };
+  })
+  .controller('ModalInstanceCtrl', function (
+    $scope,
+    $modalInstance
     ) {
 
-    carService.list().then(function(cars) {
-        $scope.cars = cars;
-      });
+    $scope.ok = function () {
+      $modalInstance.close();
+    };
 
-    $scope.editCar = function(car) {
-      console.log(car);
-    }
+    $scope.cancel = function () {
+      $modalInstance.dismiss('cancel');
+    };
   });
 })(window.angular);

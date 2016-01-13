@@ -21,7 +21,7 @@ pt-BR:
         plate: Placa
         model: Modelo
         delivery_status: Status
-        purchase_date: Data da Compra
+        purchase_date: Início da Prestação de Serviços
         expected_end_date: Previsão de Entrega
         observation: Observação
       company:
