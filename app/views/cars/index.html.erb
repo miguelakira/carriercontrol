@@ -39,3 +39,10 @@
     </div>
   </div>
 </div>
+
+<%= content_for :javascript do %>
+  <script type="text/javascript">
+    angular.module("controllers.cars").value("carsJson", <%= @cars.to_json.html_safe %>);
+  </script>
+<% end %>
+

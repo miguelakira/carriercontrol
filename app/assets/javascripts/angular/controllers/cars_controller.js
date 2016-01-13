@@ -8,8 +8,10 @@
   .controller("carsController", function(
     $scope,
     $filter,
-    $modal
+    $modal,
+    carsJson
     ) {
+    $scope.cars = carsJson;
     $scope.openModal = function() {
       $modal.open({
         animation: true,

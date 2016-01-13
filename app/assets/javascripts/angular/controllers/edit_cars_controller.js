@@ -1,7 +1,11 @@
 (function(angular) {
   "use strict";
 
-  angular.module("controllers.editCars", ["models.state", "models.location", "services.location"])
+  angular.module("controllers.editCars", [
+    "models.state",
+    "models.location",
+    "services.location"
+  ])
   .controller("editCarsController", function(
     $scope,
     $filter,
