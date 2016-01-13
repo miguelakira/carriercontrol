@@ -1,7 +1,7 @@
 class CreatePayments < ActiveRecord::Migration
   def change
     create_table :payments do |t|
-      t.decimal :value, precision: 8, scale: 2
+      t.decimal :value, precision: 8, scale: 2, null: false
       t.string :type
       t.date :fulfilled_at
       t.boolean :fulfilled

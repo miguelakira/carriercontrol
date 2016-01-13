@@ -4,6 +4,9 @@ class Company < ActiveRecord::Base
 
   accepts_nested_attributes_for :payments
 
+  validates :phone, presence: true
+  validates :name, presence: true
+  validates :email, presence: true
 
   def documents
     { cnpj: cnpj }

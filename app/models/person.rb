@@ -5,6 +5,10 @@ class Person < ActiveRecord::Base
 
   accepts_nested_attributes_for :payments, :freights
 
+  validates :name, presence: true
+  validates :email, presence: true
+  validates :phone, presence: true
+
   def documents
     { rg: rg, cpf: cpf }
   end

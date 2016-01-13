@@ -50,8 +50,8 @@ ActiveRecord::Schema.define(version: 20160110235700) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "cars", force: :cascade do |t|
-    t.string   "plate"
-    t.string   "model"
+    t.string   "plate",             null: false
+    t.string   "model",             null: false
     t.integer  "client_id"
     t.string   "client_type"
     t.datetime "created_at",        null: false
@@ -76,11 +76,12 @@ ActiveRecord::Schema.define(version: 20160110235700) do
   add_index "cities", ["state_id"], name: "index_cities_on_state_id", using: :btree
 
   create_table "companies", force: :cascade do |t|
-    t.string   "phone"
-    t.string   "email"
-    t.string   "name"
-    t.string   "cnpj"
+    t.string   "phone",       null: false
+    t.string   "email",       null: false
+    t.string   "name",        null: false
     t.string   "legal_name"
+    t.string   "cnpj"
+    t.string   "cellphone"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "observation"
@@ -120,7 +121,7 @@ ActiveRecord::Schema.define(version: 20160110235700) do
   add_index "locations", ["origin_id"], name: "index_locations_on_origin_id", using: :btree
 
   create_table "payments", force: :cascade do |t|
-    t.decimal  "value",        precision: 8, scale: 2
+    t.decimal  "value",        precision: 8, scale: 2, null: false
     t.string   "type"
     t.date     "fulfilled_at"
     t.boolean  "fulfilled"
@@ -135,11 +136,12 @@ ActiveRecord::Schema.define(version: 20160110235700) do
   add_index "payments", ["client_type", "client_id"], name: "index_payments_on_client_type_and_client_id", using: :btree
 
   create_table "people", force: :cascade do |t|
-    t.string   "phone"
-    t.string   "email"
-    t.string   "name"
+    t.string   "phone",       null: false
+    t.string   "email",       null: false
+    t.string   "name",        null: false
     t.string   "rg"
     t.string   "cpf"
+    t.string   "cellphone"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "observation"
