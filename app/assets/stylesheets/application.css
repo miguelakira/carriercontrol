@@ -12,7 +12,6 @@
  *
  *= require bootswatch-dist/css/bootstrap
  *= require eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker
- *= require angular-ui-select/dist/select
  *= require_self
  *= require_directory .
  */

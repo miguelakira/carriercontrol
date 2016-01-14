@@ -16,8 +16,6 @@
 //= require bootswatch-dist/js/bootstrap
 //= require angular-i18n/angular-locale_pt-br
 //= require angular-bootstrap
-//= require angular-ui-select/dist/select
-//= require angular-sanitize/angular-sanitize
 //
 //= require moment
 //= require eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min
