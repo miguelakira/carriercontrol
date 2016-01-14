@@ -1,9 +1,7 @@
 (function(angular) {
   "use strict";
 
-  angular.module("models.car", [
-    "models.buyer"
-    ])
+  angular.module("models.car", [])
   .factory("Car", function() {
     function Car(params) {
       if (!params) params = {};

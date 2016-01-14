@@ -2,17 +2,19 @@
   "use strict";
 
   angular.module("controllers.editCars", [
+    "services.car",
+    "services.location",
+    "services.client",
     "models.car",
     "models.client",
     "models.freight",
     "models.location",
-    "models.state",
-    "services.location",
-    "services.client"
+    "models.state"
   ])
   .controller("editCarsController", function(
     $scope,
     $filter,
+    carService,
     clientService,
     locationService,
     Car,
@@ -20,6 +22,7 @@
     Freight,
     Location,
     State,
+    carJson,
     clientJson,
     freightJson,
     locationJson,
@@ -45,6 +48,10 @@
         $scope.client = Client.fromJson(clientJson);
         $scope.freight = Freight.fromJson(freightJson);
       };
+
+      $scope.checkPlate = function(plate) {
+        carService.find({plate: "ADE-23212"}).then(function(response) { console.log(response)});
+      }
 
       $scope.update = function(location) {
         switch(location) {

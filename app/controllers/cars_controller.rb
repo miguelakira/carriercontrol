@@ -47,8 +47,12 @@ class CarsController < ApplicationController
     @car = Car.find params[:id]
   end
 
-  private
+  def find_by_plate
+    car = Car.find_by plate: params[:plate]
+    render json: car
+  end
 
+  private
   def set_car
     @car = Car.find params[:id]
     @freight = @car.freight
@@ -73,7 +77,6 @@ class CarsController < ApplicationController
     end
 
     car_params
-
   end
 
   def client_params
