@@ -21,9 +21,9 @@
         originId: json.origin_id,
         destinationId: json.destination_id,
         currentId: json.current_id,
-        originStateId: json.origin_state.id,
-        destinationStateId: json.destination_state.id,
-        currentStateId: json.current_state.id
+        originStateId: json.origin_state ? json.origin_state.id : null,
+        destinationStateId: json.destination_state ? json.destination_state.id : null,
+        currentStateId: json.current_state ? json.current_state.id : null
       });
     }
 

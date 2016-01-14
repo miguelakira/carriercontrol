@@ -1,5 +1,6 @@
 class CarsController < ApplicationController
   before_action :set_car, only: [:edit, :update]
+  before_action :set_states, only: [:new, :edit]
 
   def index
     @cars = Car.all.includes(:client)
@@ -10,13 +11,12 @@ class CarsController < ApplicationController
 
   def new
     @car = Car.new
+    @location = @car.build_location
     @client = @car.client = Person.new
     @freight = @car.build_freight
-    @location = @car.build_location
   end
 
   def create
-
     @car = Car.new(car_params)
     @client = @car.build_client(client_params)
 
@@ -54,6 +54,9 @@ class CarsController < ApplicationController
     @freight = @car.freight
     @client = @car.client
     @location = @car.location
+  end
+
+  def set_states
     @states = State.all
   end
 

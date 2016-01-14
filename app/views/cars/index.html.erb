@@ -5,7 +5,6 @@
       <table class="table table-blasted table-hover table-condensed">
         <thead>
           <tr>
-            <th><%= I18n.t "activerecord.attributes.car.id" %></th>
             <th><%= I18n.t "activerecord.attributes.car.plate" %></th>
             <th><%= I18n.t "activerecord.attributes.car.model" %></th>
             <th><%= I18n.t "activerecord.models.location" %></th>
@@ -20,7 +19,6 @@
           <% @cars.each do |car| %>
             <%= render partial: "/shared/modals/car_modal", locals: { car: car } %>
             <tr class="accordion-toggle">
-              <td data-toggle="modal" data-target="#car-<%= car.id %>-modal" ><%= car.id %></td>
               <td data-toggle="modal" data-target="#car-<%= car.id %>-modal" ><%= car.plate %></td>
               <td data-toggle="modal" data-target="#car-<%= car.id %>-modal" ><%= car.model %></td>
               <td data-toggle="modal" data-target="#car-<%= car.id %>-modal" ><%= car.location.full :current %></td>
