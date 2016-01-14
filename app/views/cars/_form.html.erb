@@ -141,10 +141,11 @@
 <%= content_for :javascript do %>
   <script type="text/javascript">
     angular.module("controllers.editCars")
-      .value("statesJson", <%= @states.to_json.html_safe %>)
+      .value("carJson", <%= @car.to_json.html_safe %>)
       .value("clientJson", <%= @client.to_json.html_safe %>)
       .value("freightJson", <%= @freight.to_json.html_safe %>)
-      .value("locationJson", <%= @location.to_json.html_safe %>);
+      .value("locationJson", <%= @location.to_json.html_safe %>)
+      .value("statesJson", <%= @states.to_json.html_safe %>);
   </script>
 <% end -%>
 

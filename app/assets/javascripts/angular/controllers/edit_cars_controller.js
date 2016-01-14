@@ -1,20 +1,29 @@
 (function(angular) {
   "use strict";
 
-  angular.module("controllers.editCars", ["models.state", "models.location", "models.client", "models.freight", "services.location", "services.client"])
+  angular.module("controllers.editCars", [
+    "models.car",
+    "models.client",
+    "models.freight",
+    "models.location",
+    "models.state",
+    "services.location",
+    "services.client"
+  ])
   .controller("editCarsController", function(
     $scope,
     $filter,
-    State,
-    statesJson,
-    Location,
+    clientService,
+    locationService,
+    Car,
     Client,
     Freight,
+    Location,
+    State,
     clientJson,
     freightJson,
     locationJson,
-    locationService,
-    clientService
+    statesJson
     ) {
       $scope.init = function() {
         var location = Location.fromJson(locationJson);
@@ -32,6 +41,7 @@
         $scope.update("destination");
         $scope.update("current");
 
+        $scope.car = Car.fromJson(carJson);
         $scope.client = Client.fromJson(clientJson);
         $scope.freight = Freight.fromJson(freightJson);
       };

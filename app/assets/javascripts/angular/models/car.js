@@ -7,29 +7,16 @@
   .factory("Car", function() {
     function Car(params) {
       if (!params) params = {};
-
-      this.id = params.id;
       this.plate = params.plate;
-      this.model = params.model;
-      this.buyer = params.buyer ? params.buyer : null;
+      this.purchaseDate = params.purchaseDate;
+      this.expectedEndDate = params.expectedEndDate;
     }
 
-    Car.prototype.toJson = function() {
-      return {
-        car: {
-          name: this.name ? this.name : null,
-          plate: this.plate ? this.plate : null,
-          model: this.model ? this.model : null
-        }
-      };
-    };
-
-    Car.prototype.fromJson = function(json) {
+    Car.fromJson = function(json) {
       return new Car({
-        id: json.id,
-        name: json.name,
-        model: json.model,
-        buyer: json.buyer ? Buyer.fromJson(json.buyer) : null
+        plate: json.plate,
+        purchaseDate: json.purchase_date,
+        expectedEndDate: json.expected_end_date
       });
     };
 
