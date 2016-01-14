@@ -8,35 +8,35 @@
       <div class="field form-group">
         <div class="col-md-6">
           <%= builder.label :cpf, class: "control-label" %>
-          <%= builder.text_field :cpf, class: "form-control" %>
+          <%= builder.text_field :cpf, class: "form-control", "ng-model": "client.cpf", "ui-br-cpf-mask": "" %>
         </div>
         <div class="col-md-6">
           <%= builder.label :rg, class: "control-label" %>
-          <%= builder.text_field :rg, class: "form-control" %>
+          <%= builder.text_field :rg, class: "form-control", "ng-model": "client.rg" %>
         </div>
       </div>
 
       <div class="field form-group">
         <div class="col-md-12">
           <%= builder.label :name, class: "control-label" %>
-          <%= builder.text_field :name, class: "form-control" %>
+          <%= builder.text_field :name, class: "form-control capitalize", "ng-model": "client.name" %>
         </div>
       </div>
 
       <div class="field form-group">
         <div class="col-md-6">
           <%= builder.label :email, class: "control-label" %>
-          <%= builder.text_field :email, class: "form-control" %>
+          <%= builder.text_field :email, class: "form-control", "ng-model": "client.email" %>
         </div>
         <div class="col-md-6">
           <%= builder.label :phone, class: "control-label" %>
-          <%= builder.text_field :phone, class: "form-control" %>
+          <%= builder.text_field :phone, class: "form-control", "ng-model": "client.phone", "ui-br-phone-number": "" %>
         </div>
       </div>
       <div class="field form-group">
         <div class="col-md-12">
           <%= builder.label :observation, class: "control-label" %>
-          <%= builder.text_area :observation, class: "form-control", rows: 5 %>
+          <%= builder.text_area :observation, class: "form-control", rows: 5, "ng-model": "client.observation" %>
         </div>
       </div>
     </div>

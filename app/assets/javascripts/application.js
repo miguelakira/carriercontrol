@@ -16,6 +16,8 @@
 //= require bootswatch-dist/js/bootstrap
 //= require angular-i18n/angular-locale_pt-br
 //= require angular-bootstrap
+//= require angular-input-masks/angular-input-masks-standalone
+//= require angular-ui-mask/dist/mask
 //
 //= require moment
 //= require eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min

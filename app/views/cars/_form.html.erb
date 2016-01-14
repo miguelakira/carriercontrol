@@ -23,11 +23,11 @@
           <div class="field form-group">
             <div class="col-md-6">
               <%= f.label :plate, class: "control-label" %>
-              <%= f.text_field :plate, class: "form-control" %>
+              <%= f.text_field :plate, class: "form-control uppercase", "ng-model": "car.plate", "ui-mask": "AAA-9999", "ui-options": "{clearOnBlur: false}" %>
             </div>
             <div class="col-md-6">
               <%= f.label :model, class: "control-label" %>
-              <%= f.text_field :model, class: "form-control" %>
+              <%= f.text_field :model, class: "form-control capitalize" %>
             </div>
           </div>
 
@@ -42,7 +42,7 @@
             <div class="col-md-6">
               <%= f.label :purchase_date, class: "control-label" %>
               <div class="input-group date" id="datetimepicker_start">
-                <%= f.text_field :purchase_date, class: "form-control", id: "datetimepicker1" %>
+                <%= f.text_field :purchase_date, class: "form-control", id: "datetimepicker1", "ng-model": "car.purchaseDate", "ui-date-mask": "" %>
                 <span class="input-group-addon">
                   <span class="glyphicon glyphicon-time"></span>
                 </span>
@@ -52,7 +52,7 @@
             <div class="col-md-6">
               <%= f.label :expected_end_date, class: "control-label" %>
               <div class="input-group date datetimepicker" id="datetimepicker_end">
-                <%= f.text_field :expected_end_date, class: "form-control", id: "datetimepicker1" %>
+                <%= f.text_field :expected_end_date, class: "form-control", id: "datetimepicker1", "ng-model": "car.expectedEndDate", "ui-date-mask": "" %>
                 <span class="input-group-addon">
                   <span class="glyphicon glyphicon-time"></span>
                 </span>
@@ -81,40 +81,40 @@
             <div class="field form-group">
               <div class="col-md-6">
                 <%= freight_builder.label :subtotal, class: "control-label" %>
-                <%= freight_builder.text_field :subtotal, class: "form-control" %>
+                <%= freight_builder.text_field :subtotal, class: "form-control", "ui-money-mask": "", "ng-model": "freight.subtotal" %>
               </div>
               <div class="col-md-6">
                 <%= freight_builder.label :ferry, class: "control-label" %>
-                <%= freight_builder.text_field :ferry, class: "form-control" %>
+                <%= freight_builder.text_field :ferry, class: "form-control", "ui-money-mask": "", "ng-model": "freight.ferry" %>
               </div>
             </div>
 
             <div class="field form-group">
               <div class="col-md-6">
                 <%= freight_builder.label :platform, class: "control-label" %>
-                <%= freight_builder.text_field :platform, class: "form-control" %>
+                <%= freight_builder.text_field :platform, class: "form-control", "ui-money-mask": "", "ng-model": "freight.platform" %>
               </div>
               <div class="col-md-6">
                 <%= freight_builder.label :redispatching, class: "control-label" %>
-                <%= freight_builder.text_field :redispatching, class: "form-control" %>
+                <%= freight_builder.text_field :redispatching, class: "form-control", "ui-money-mask": "", "ng-model": "freight.redispatching" %>
               </div>
             </div>
 
             <div class="field form-group">
               <div class="col-md-6">
                 <%= freight_builder.label :platform_origin, class: "control-label" %>
-                <%= freight_builder.text_field :platform_origin, class: "form-control" %>
+                <%= freight_builder.text_field :platform_origin, class: "form-control", "ui-money-mask": "", "ng-model": "freight.platform_origin" %>
               </div>
               <div class="col-md-6">
                 <%= freight_builder.label :platform_destination, class: "control-label" %>
-                <%= freight_builder.text_field :platform_destination, class: "form-control" %>
+                <%= freight_builder.text_field :platform_destination, class: "form-control", "ui-money-mask": "", "ng-model": "freight.platform_destination" %>
               </div>
             </div>
 
             <div class="field form-group">
               <div class="col-md-6">
                 <%= freight_builder.label :discount, class: "control-label text-danger" %>
-                <%= freight_builder.text_field :discount, class: "form-control" %>
+                <%= freight_builder.text_field :discount, class: "form-control", "ui-money-mask": "", "ng-model": "freight.discount" %>
               </div>
               <div class="col-md-6">
                 <label class="control-label"></label>

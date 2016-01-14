@@ -13,11 +13,13 @@
     "angular": "~1.4.3",
     "angular-bootstrap": "~0.13.0",
     "angular-i18n": "~1.4.3",
+    "angular-input-masks": "~2.1.1",
     "angular-ui-router": "~0.2.15",
     "bootswatch-dist": "flatly",
     "eonasdan-bootstrap-datetimepicker": "4.17.37",
     "font-awesome": "~4.3.0",
-    "sugar": "~1.4.1"
+    "sugar": "~1.4.1",
+    "angular-ui-mask": "~1.6.7"
   },
   "license": "MIT",
   "homepage": "",
