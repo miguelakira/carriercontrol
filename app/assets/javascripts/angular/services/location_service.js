@@ -12,8 +12,7 @@
   ) {
     return {
       listCities: function(stateId) {
-        var promise = $http.get("/cities/" + stateId)
-        return promise.then(function(response) {
+        return $http.get("/cities/" + stateId).then(function(response) {
           return $q.resolve(response.data.map(City.fromJson));
         });
       }

@@ -1,7 +1,7 @@
 (function(angular) {
   "use strict";
 
-  angular.module("controllers.editCars", ["models.state", "models.location", "services.location"])
+  angular.module("controllers.editCars", ["models.state", "models.location", "services.location", "services.client"])
   .controller("editCarsController", function(
     $scope,
     $filter,
@@ -9,7 +9,8 @@
     statesJson,
     Location,
     locationJson,
-    locationService
+    locationService,
+    clientService
     ) {
       $scope.init = function() {
         var location = Location.fromJson(locationJson);
@@ -26,6 +27,10 @@
         $scope.update("origin");
         $scope.update("destination");
         $scope.update("current");
+
+        clientService.find({cpf: 746592823935}).then(function(client) { console.log(client) });
+
+
       };
 
       $scope.update = function(location) {

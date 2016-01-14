@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :cars
   resources :finances
 
+  get "/clients/find_by_document", to: "clients#find_by_document"
   get "/cities/:id", to: "locations#index"
 
 end
