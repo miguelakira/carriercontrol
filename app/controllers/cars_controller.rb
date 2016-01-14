@@ -61,10 +61,19 @@ class CarsController < ApplicationController
   end
 
   def car_params
-    params.require(:car).permit(:id, :plate, :model, :client_id, :delivery_status, :purchase_date, :expected_end_date, :client_type,
-      freight_attributes: [:id, :subtotal, :ferry, :platform, :platform_origin, :platform_destination, :redispatching, :observation, :discount],
+    car_params = params.require(:car).permit(:id, :plate, :model, :client_id, :delivery_status, :purchase_date, :expected_end_date, :client_type,
+    freight_attributes: [:id, :subtotal, :ferry, :platform, :platform_origin, :platform_destination, :redispatching, :observation, :discount],
       location_attributes: [:id, :origin_id, :destination_id, :current_id]
       )
+
+    car_params[:freight_attributes].each do |key, value|
+      if [:ferry, :platform, :platform_origin, :platform_destination, :redispatching, :discount].include?(key.to_sym)
+        value.gsub!("R$","").gsub!(".", "").gsub!(",", ".") unless value.empty?
+      end
+    end
+
+    car_params
+
   end
 
   def client_params
@@ -72,9 +81,6 @@ class CarsController < ApplicationController
     client_params[:client_attributes]
   end
 
-  def payment_params
-    payment_params
-  end
 
   def car_and_client_params
     car_params.merge(client_attributes: client_params)
