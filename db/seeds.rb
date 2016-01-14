@@ -35,7 +35,7 @@ end
 BRPopulate.populate unless State.exists? && City.exists?
 
 puts "Generating 50 cars and clients..."
-50.times do |count|
+10.times do |count|
 
   if count % 2 == 0
     name = Faker::Name.name
@@ -55,30 +55,35 @@ puts "Generating 50 cars and clients..."
       phone: Faker::PhoneNumber.phone_number
     )
   end
-  plate = "#{(0...3).map { (65 + rand(26)).chr }.join}-#{Faker::Number.number(4)}"
+  5.times do
+    plate = "#{(0...3).map { (65 + rand(26)).chr }.join}-#{Faker::Number.number(4)}"
 
-  car = Car.create(
-    plate: plate,
-    model: Faker::Hipster.words(2).join(" "),
-    client: @client,
-    delivery_status: Faker::Number.between(0,6)
-  )
+    car = Car.create(
+      plate: plate,
+      model: Faker::Hipster.words(2).join(" "),
+      client: @client,
+      delivery_status: Faker::Number.between(0,6)
+    )
 
-  car.create_freight(
-    subtotal: Faker::Commerce.price,
-    ferry: Faker::Commerce.price,
-    platform: Faker::Commerce.price,
-    redispatching: Faker::Commerce.price,
-    platform_origin: Faker::Commerce.price,
-    platform_destination: Faker::Commerce.price,
-    discount: Faker::Commerce.price
-  )
+    freight = car.build_freight(
+      subtotal: Faker::Commerce.price,
+      ferry: Faker::Commerce.price,
+      platform: Faker::Commerce.price,
+      redispatching: Faker::Commerce.price,
+      platform_origin: Faker::Commerce.price,
+      platform_destination: Faker::Commerce.price,
+      discount: Faker::Commerce.price
+    )
 
-  car.create_location(
-    origin_id: Faker::Number.between(1,5000),
-    destination_id: Faker::Number.between(1,5000),
-    current_id: Faker::Number.between(1,5000)
-  )
+    freight.client = car.client
+    freight.save!
+
+    car.create_location(
+      origin_id: Faker::Number.between(1,5000),
+      destination_id: Faker::Number.between(1,5000),
+      current_id: Faker::Number.between(1,5000)
+    )
+  end
 end
 
 puts "Done!"
