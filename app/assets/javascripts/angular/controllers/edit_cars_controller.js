@@ -49,9 +49,11 @@
         $scope.freight = Freight.fromJson(freightJson);
       };
 
-      $scope.checkPlate = function(plate) {
-        carService.find({plate: "ADE-23212"}).then(function(response) { console.log(response)});
-      }
+      $scope.checkPlate = function() {
+        carService.find($scope.car.plate).then(function(response) {
+          $scope.carExists = response;
+        });
+      };
 
       $scope.update = function(location) {
         switch(location) {
