@@ -8,7 +8,7 @@
       <div class="field form-group">
         <div class="col-md-6">
           <%= builder.label :cpf, class: "control-label" %>
-          <%= builder.text_field :cpf, class: "form-control", "ng-model": "client.cpf", "ui-br-cpf-mask": "" %>
+          <%= builder.text_field :cpf, class: "form-control", "ng-model": "client.cpf", "ui-mask": "999.999.999-99" %>
         </div>
         <div class="col-md-6">
           <%= builder.label :rg, class: "control-label" %>
@@ -30,7 +30,7 @@
         </div>
         <div class="col-md-6">
           <%= builder.label :phone, class: "control-label" %>
-          <%= builder.text_field :phone, class: "form-control", "ng-model": "client.phone", "ui-br-phone-number": "" %>
+          <%= builder.text_field :phone, class: "form-control", "ng-model": "client.phone" %>
         </div>
       </div>
       <div class="field form-group">
