@@ -8,7 +8,7 @@
       <div class="field form-group">
         <div class="col-md-6">
           <%= builder.label :cnpj, class: "control-label" %>
-          <%= builder.text_field :cnpj, class: "form-control" %>
+          <%= builder.text_field :cnpj, class: "form-control", "ng-model": "client.cnpj", "ui-br-cnpj-mask": "" %>
         </div>
         <div class="col-md-6">
           <%= builder.label :name, class: "control-label" %>

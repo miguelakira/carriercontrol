@@ -21,6 +21,7 @@ gem "ejs"
 gem "ngannotate-rails"
 
 gem "faker"
+gem "cpf_cnpj"
 
 group :development, :test do
   gem "byebug"

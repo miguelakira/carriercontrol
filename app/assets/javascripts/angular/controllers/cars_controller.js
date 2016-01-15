@@ -2,22 +2,11 @@
   "use strict";
 
   angular.module("controllers.cars", [
-    "models.car",
-    "services.carService"
   ])
   .controller("carsController", function(
     $scope,
-    $filter,
-    Car,
-    carService
+    carsJson
     ) {
-
-    carService.list().then(function(cars) {
-        $scope.cars = cars;
-      });
-
-    $scope.editCar = function(car) {
-      console.log(car);
-    }
+    console.log(carsJson);
   });
 })(window.angular);

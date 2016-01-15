@@ -8,6 +8,7 @@ class Person < ActiveRecord::Base
   validates :name, presence: true
   validates :email, presence: true
   validates :phone, presence: true
+  validate :cpf_must_be_valid
 
   def document
     cpf
@@ -27,5 +28,10 @@ class Person < ActiveRecord::Base
 
   def active_cars
 
+  end
+
+  private
+  def cpf_must_be_valid
+    errors.add(:cpf, "precisa ser válido") unless CPF.valid? cpf
   end
 end

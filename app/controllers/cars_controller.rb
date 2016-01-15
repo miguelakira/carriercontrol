@@ -72,7 +72,7 @@ class CarsController < ApplicationController
 
     car_params[:freight_attributes].each do |key, value|
       if [:ferry, :platform, :platform_origin, :platform_destination, :redispatching, :discount].include?(key.to_sym)
-        value.gsub!("R$","").gsub!(".", "").gsub!(",", ".") unless value.empty?
+        value.gsub("R$","").gsub(".", "").gsub(",", ".") unless value.empty?
       end
     end
 

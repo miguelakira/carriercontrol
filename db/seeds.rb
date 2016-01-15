@@ -43,14 +43,14 @@ puts "Generating 50 cars and clients..."
       name: name,
       email: Faker::Internet.email(name),
       rg: Faker::Number.number(9),
-      cpf: Faker::Number.number(11),
+      cpf: CPF.generate(true),
       phone: Faker::PhoneNumber.phone_number
     )
   else
     name = Faker::Company.name
     @client = Company.create(
       name: name,
-      cnpj: Faker::Number.number(14),
+      cnpj: CNPJ.generate(true),
       email: Faker::Internet.email(name),
       phone: Faker::PhoneNumber.phone_number
     )

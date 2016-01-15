@@ -25,7 +25,7 @@
               <td data-toggle="modal" data-target="#car-<%= car.id %>-modal" ><%= car.client.name %></td>
               <td data-toggle="modal" data-target="#car-<%= car.id %>-modal" ><%= car.client.phone %></td>
               <td data-toggle="modal" data-target="#car-<%= car.id %>-modal" ><%= car.client.document %></td>
-              <td data-toggle="modal" data-target="#car-<%= car.id %>-modal" ><%= car.client.total_debt %></td>
+              <td data-toggle="modal" data-target="#car-<%= car.id %>-modal" ><%= number_to_currency car.client.total_debt %></td>
               <td>
                 <%= link_to edit_car_path(car.id), class: "btn btn-default btn-sm", "aria-abel": "Right Align" do %>
                   <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
