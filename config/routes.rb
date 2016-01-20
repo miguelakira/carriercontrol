@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :cars do
     get :find_by_plate, on: :collection
   end
+
   resources :finances
 
 end

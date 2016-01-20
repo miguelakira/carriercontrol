@@ -34,6 +34,10 @@ pt-BR:
         cnpj: CNPJ
         email: Email
         phone: Telefone Fixo
+        total_debt: Dívida Total
+        total_payment: Pagamento Total
+        active_cars: Carros Ativos
+
       freight:
         subtotal: Valor do Frete
         ferry: Taxa da Balsa
