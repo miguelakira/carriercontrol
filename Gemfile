@@ -24,6 +24,7 @@ gem "faker"
 gem "cpf_cnpj"
 
 group :development, :test do
+  gem "pry-rails"
   gem "byebug"
   gem "better_errors"
 end
