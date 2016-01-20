@@ -55,8 +55,10 @@ puts "Generating 50 cars and clients..."
       phone: Faker::PhoneNumber.phone_number
     )
   end
+
   5.times do
     plate = "#{(0...3).map { (65 + rand(26)).chr }.join}-#{Faker::Number.number(4)}"
+    puts "Creating car #{plate} for client #{@client.name}"
 
     car = Car.create(
       plate: plate,
@@ -65,18 +67,16 @@ puts "Generating 50 cars and clients..."
       delivery_status: Faker::Number.between(0,6)
     )
 
-    freight = car.build_freight(
+    freight = car.create_freight(
       subtotal: Faker::Commerce.price,
       ferry: Faker::Commerce.price,
       platform: Faker::Commerce.price,
       redispatching: Faker::Commerce.price,
       platform_origin: Faker::Commerce.price,
       platform_destination: Faker::Commerce.price,
-      discount: Faker::Commerce.price
+      discount: Faker::Commerce.price,
+      client: @client
     )
-
-    freight.client = car.client
-    freight.save!
 
     car.create_location(
       origin_id: Faker::Number.between(1,5000),

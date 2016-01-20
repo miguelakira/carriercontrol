@@ -25,4 +25,8 @@ class Person < ActiveRecord::Base
   def cpf_must_be_valid
     errors.add(:cpf, "precisa ser válido") unless CPF.valid? cpf
   end
+
+  def create_finance
+    self.finance = Finance.new
+  end
 end

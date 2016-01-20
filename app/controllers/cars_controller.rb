@@ -19,7 +19,6 @@ class CarsController < ApplicationController
   def create
     @car = Car.new(car_params)
     @client = @car.build_client(client_params)
-
     respond_to do |format|
       if @car.save
         format.html { redirect_to cars_path, notice: "Carro criado com sucesso" }

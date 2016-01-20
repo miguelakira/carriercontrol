@@ -21,7 +21,7 @@
             <tr class="accordion-toggle">
               <td data-toggle="modal" data-target="#car-<%= car.id %>-modal" ><%= car.plate %></td>
               <td data-toggle="modal" data-target="#car-<%= car.id %>-modal" ><%= car.model %></td>
-              <td data-toggle="modal" data-target="#car-<%= car.id %>-modal" ><%= car.location.full :current %></td>
+              <td data-toggle="modal" data-target="#car-<%= car.id %>-modal" ><%= car.location.full :current if car.location %></td>
               <td data-toggle="modal" data-target="#car-<%= car.id %>-modal" ><%= car.client.name %></td>
               <td data-toggle="modal" data-target="#car-<%= car.id %>-modal" ><%= car.client.phone %></td>
               <td data-toggle="modal" data-target="#car-<%= car.id %>-modal" ><%= car.client.document %></td>

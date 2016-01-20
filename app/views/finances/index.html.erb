@@ -8,7 +8,7 @@
             <th><%= I18n.t "activerecord.attributes.person.name" %></th>
             <th><%= I18n.t "activerecord.attributes.person.cpf" %></th>
             <th><%= I18n.t "activerecord.attributes.person.total_debt" %></th>
-            <th><%= I18n.t "activerecord.attributes.person.total_payment" %></th>
+            <th><%= I18n.t "activerecord.attributes.person.total_payments" %></th>
             <th><%= I18n.t "activerecord.attributes.person.active_cars" %></th>
             <th></th>
           </tr>
@@ -19,10 +19,10 @@
               <td><%= person.name %></td>
               <td><%= person.cpf %></td>
               <td><%= number_to_currency person.total_debt %></td>
-              <td><%= number_to_currency person.total_payment %></td>
-              <td><%= person.active_cars %></td>
+              <td><%= number_to_currency person.total_payments %></td>
+              <td><%= person.cars.active.count %></td>
               <td>
-                <%= link_to edit_finance_path(person.id), class: "btn btn-default btn-sm", "aria-abel": "Right Align" do %>
+                <%= link_to edit_finance_path(person.finance), class: "btn btn-default btn-sm", "aria-abel": "Right Align" do %>
                   <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                   <span class="sr-only">Edit</span>
                 <% end %>
@@ -41,8 +41,9 @@
             <th><%= I18n.t "activerecord.attributes.company.name" %></th>
             <th><%= I18n.t "activerecord.attributes.company.cnpj" %></th>
             <th><%= I18n.t "activerecord.attributes.company.total_debt" %></th>
-            <th><%= I18n.t "activerecord.attributes.company.total_payment" %></th>
+            <th><%= I18n.t "activerecord.attributes.company.total_payments" %></th>
             <th><%= I18n.t "activerecord.attributes.company.active_cars" %></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -51,8 +52,15 @@
               <td><%= company.name %></td>
               <td><%= company.cnpj %></td>
               <td><%= number_to_currency company.total_debt %></td>
-              <td><%= number_to_currency company.total_payment %></td>
-              <td><%= company.active_cars %></td>
+              <td><%= number_to_currency company.total_payments %></td>
+              <td><%= company.cars.active.count %></td>
+              <td>
+                <%= link_to edit_finance_path(company.finance), class: "btn btn-default btn-sm", "aria-abel": "Right Align" do %>
+                  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                  <span class="sr-only">Edit</span>
+                <% end %>
+              </td>
+
             </tr>
           <% end %>
         </tbody>

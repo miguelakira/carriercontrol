@@ -35,7 +35,7 @@ pt-BR:
         email: Email
         phone: Telefone Fixo
         total_debt: Dívida Total
-        total_payment: Pagamento Total
+        total_payments: Pagamento Total
         active_cars: Carros Ativos
 
       freight:
@@ -69,7 +69,7 @@ pt-BR:
         cellphone: Telefone Celular
         email: Email
         total_debt: Dívida Total
-        total_payment: Pagamento Total
+        total_payments: Pagamento Total
         active_cars: Carros Ativos
 
 
