@@ -1,6 +1,6 @@
 class Payment < ActiveRecord::Base
-  belongs_to :client, polymorphic: true
-  belongs_to :car
+  belongs_to :finance
 
   validates :value, presence: true
+  validates :finance, presence: true
 end

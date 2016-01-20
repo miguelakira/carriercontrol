@@ -6,9 +6,11 @@ class CreatePayments < ActiveRecord::Migration
       t.date :fulfilled_at
       t.boolean :fulfilled
       t.date :will_be_fulfilled_at
-      t.references :client, polymorphic: true, index: true
+      t.references :finance, index: true, null: false
 
       t.timestamps null: false
     end
+
+    add_foreign_key :payments, :finances
   end
 end

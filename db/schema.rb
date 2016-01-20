@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160110235700) do
+ActiveRecord::Schema.define(version: 20160120125400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 20160110235700) do
   create_table "cars", force: :cascade do |t|
     t.string   "plate",             null: false
     t.string   "model",             null: false
-    t.integer  "client_id"
-    t.string   "client_type"
+    t.integer  "client_id",         null: false
+    t.string   "client_type",       null: false
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.integer  "delivery_status"
@@ -87,6 +87,15 @@ ActiveRecord::Schema.define(version: 20160110235700) do
     t.string   "observation"
   end
 
+  create_table "finances", force: :cascade do |t|
+    t.integer  "client_id",   null: false
+    t.string   "client_type", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "finances", ["client_type", "client_id"], name: "index_finances_on_client_type_and_client_id", using: :btree
+
   create_table "freights", force: :cascade do |t|
     t.decimal  "subtotal",             precision: 8, scale: 2
     t.decimal  "ferry",                precision: 8, scale: 2
@@ -99,8 +108,8 @@ ActiveRecord::Schema.define(version: 20160110235700) do
     t.integer  "car_id"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
-    t.integer  "client_id"
-    t.string   "client_type"
+    t.integer  "client_id",                                    null: false
+    t.string   "client_type",                                  null: false
   end
 
   add_index "freights", ["car_id"], name: "index_freights_on_car_id", using: :btree
@@ -125,15 +134,14 @@ ActiveRecord::Schema.define(version: 20160110235700) do
     t.string   "type"
     t.date     "fulfilled_at"
     t.boolean  "fulfilled"
-    t.integer  "client_id"
-    t.string   "client_type"
+    t.integer  "finance_id",                           null: false
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
-    t.string   "observation"
     t.date     "date"
+    t.string   "observation"
   end
 
-  add_index "payments", ["client_type", "client_id"], name: "index_payments_on_client_type_and_client_id", using: :btree
+  add_index "payments", ["finance_id"], name: "index_payments_on_finance_id", using: :btree
 
   create_table "people", force: :cascade do |t|
     t.string   "phone",       null: false
@@ -167,4 +175,5 @@ ActiveRecord::Schema.define(version: 20160110235700) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "payments", "finances"
 end
