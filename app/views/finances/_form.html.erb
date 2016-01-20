@@ -1,0 +1,118 @@
+<% if @finance.errors.any? %>
+  <div class="alert bg-danger fade in">
+    <h4>
+      <%= pluralize(@finance.errors.count, t("activerecord.errors.messages.error")) %>
+      <%= t(".check_errors") %>
+    </h4>
+    <ul>
+      <% @finance.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= t(".client_data") %></h3>
+      </div>
+      <table class="table table-hover">
+        <tbody>
+          <tr>
+            <th>Nome</th>
+            <td><%= @client.name %></td>
+          </tr>
+          <tr>
+            <th>Documento</th>
+            <td><%= @client.document %></td>
+          </tr>
+          <tr>
+            <th>Contato</th>
+            <td><%= @client.phone %></td>
+          </tr>
+          <tr>
+            <th>Telefone</th>
+            <td><%= @client.phone %></td>
+          </tr>
+          <tr>
+            <th>Valor total dos Fretes</th>
+            <td><%= @client.total_debt %></td>
+          </tr>
+          <tr>
+            <th>Valor total pago</th>
+            <td><%= @client.total_payments %></td>
+          </tr>
+          <tr>
+            <th>Saldo devedor total</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th>Carros Ativos</th>
+            <td><%= @client.cars.active.count %></td>
+          </tr>
+          <tr>
+            <th>Carros Finalizados</th>
+            <td><%= @client.cars.inactive.count %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= t(".payment_data") %></h3>
+      </div>
+      <div class="panel-body">
+        <%= form_for @finance, html: { class: "form-horizontal" } do |f| %>
+          <%= f.fields_for :payment do |payment_builder|%>
+            <div class="field form-group">
+              <div class="col-md-6">
+                <%= payment_builder.label :type, class: "control-label" %>
+                <%= payment_builder.text_field :type, class: "form-control" %>
+              </div>
+
+              <div class="col-md-6">
+                <%= payment_builder.label :value, class: "control-label" %>
+                <%= payment_builder.text_field :value, class: "form-control" %>
+              </div>
+            </div>
+
+            <div class="field form-group">
+              <div class="col-md-6">
+                <%= payment_builder.label :date, class: "control-label" %>
+                <div class="input-group date datetimepicker" id="datetimepicker_end">
+                  <%= payment_builder.text_field :date, class: "form-control", id: "datetimepicker1" %>
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-time"></span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label class="control-label">&nbsp;</label>
+                 <div class="checkbox">
+                   <label>
+                       <%= payment_builder.check_box :fulfilled %>
+                       <%= t(".fulfilled") %>
+                   </label>
+                 </div>
+              </div>
+            </div>
+
+            <div class="field form-group">
+              <div class="col-md-12">
+                <%= payment_builder.label :observation, class: "form-label" %>
+                <%= payment_builder.text_area :observation, rows: 5, class: "form-control" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
