@@ -11,9 +11,9 @@
         <% end %>
       </ul>
     </div>
-  <% end -%>
+  <% end %>
   <div class="row">
-    <%= form_for(@car, html: {class: "form-horizontal"}) do |f| %>
+    <%= form_for(@car, html: { class: "form-horizontal" }) do |f| %>
       <div class="col-md-6">
         <div class="well">
           <fieldset>
@@ -169,5 +169,5 @@
       .value("locationJson", <%= @location.to_json.html_safe %>)
       .value("statesJson", <%= @states.to_json.html_safe %>);
   </script>
-<% end -%>
+<% end %>
 

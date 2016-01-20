@@ -8,10 +8,8 @@ Rails.application.routes.draw do
   get "/cars/find_by_plate/:plate", to: "cars#find_by_plate"
   get "/cities/:id", to: "locations#index"
 
+  resources :finances
   resources :cars do
     get :find_by_plate, on: :collection
   end
-
-  resources :finances
-
 end

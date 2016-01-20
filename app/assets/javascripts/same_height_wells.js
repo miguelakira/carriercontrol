@@ -6,4 +6,12 @@ $(document).ready(function() {
     maxHeight = Math.max.apply(null, heights);
 
     $(".well").height(maxHeight);
+
+    var panelHeights = $(".panel").map(function() {
+        return $(this).height();
+    }).get(),
+
+    maxPanelHeight = Math.max.apply(null, panelHeights);
+
+    $(".panel").height(maxPanelHeight);
 });

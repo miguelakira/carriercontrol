@@ -11,54 +11,26 @@
         <div class="navbar-collapse collapse" id="navbar-main">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Themes <span class="caret"></span></a>
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Carros<span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="themes">
-                <li><a href="../default/">Default</a></li>
+                <li><%= link_to "Ativos", cars_path %> </li>
                 <li class="divider"></li>
-                <li><a href="../cerulean/">Cerulean</a></li>
-                <li><a href="../cosmo/">Cosmo</a></li>
-                <li><a href="../cyborg/">Cyborg</a></li>
-                <li><a href="../darkly/">Darkly</a></li>
-                <li><a href="../flatly/">Flatly</a></li>
-                <li><a href="../journal/">Journal</a></li>
-                <li><a href="../lumen/">Lumen</a></li>
-                <li><a href="../paper/">Paper</a></li>
-                <li><a href="../readable/">Readable</a></li>
-                <li><a href="../sandstone/">Sandstone</a></li>
-                <li><a href="../simplex/">Simplex</a></li>
-                <li><a href="../slate/">Slate</a></li>
-                <li><a href="../spacelab/">Spacelab</a></li>
-                <li><a href="../superhero/">Superhero</a></li>
-                <li><a href="../united/">United</a></li>
-                <li><a href="../yeti/">Yeti</a></li>
+                <li><%= link_to "Finalizados", cars_path %></li>
               </ul>
             </li>
             <li>
-              <a href="../help/">Help</a>
+              <%= link_to "Cegonhas"%>
             </li>
             <li>
-              <a href="http://news.bootswatch.com">Blog</a>
+              <%= link_to "Parceiros" %>
             </li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Paper <span class="caret"></span></a>
-              <ul class="dropdown-menu" aria-labelledby="download">
-                <li><a href="http://jsfiddle.net/bootswatch/ndax7sh7/">Open Sandbox</a></li>
-                <li class="divider"></li>
-                <li><a href="./bootstrap.min.css">bootstrap.min.css</a></li>
-                <li><a href="./bootstrap.css">bootstrap.css</a></li>
-                <li class="divider"></li>
-                <li><a href="./variables.less">variables.less</a></li>
-                <li><a href="./bootswatch.less">bootswatch.less</a></li>
-                <li class="divider"></li>
-                <li><a href="./_variables.scss">_variables.scss</a></li>
-                <li><a href="./_bootswatch.scss">_bootswatch.scss</a></li>
-              </ul>
+            <li class="list-group-item-success">
+              <%= link_to "Controle Financeiro", finances_path %>
             </li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="http://builtwithbootstrap.com/" target="_blank">Built With Bootstrap</a></li>
-            <li><a href="https://wrapbootstrap.com/?ref=bsw" target="_blank">WrapBootstrap</a></li>
+            <li><a href="https://wrapbootstrap.com/?ref=bsw" target="_blank">Logout</a></li>
           </ul>
 
         </div>

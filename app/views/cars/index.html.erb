@@ -18,7 +18,7 @@
         <tbody>
           <% @cars.each do |car| %>
             <%= render partial: "/shared/modals/car_modal", locals: { car: car } %>
-            <tr class="accordion-toggle">
+            <tr class="clickable">
               <td data-toggle="modal" data-target="#car-<%= car.id %>-modal" ><%= car.plate %></td>
               <td data-toggle="modal" data-target="#car-<%= car.id %>-modal" ><%= car.model %></td>
               <td data-toggle="modal" data-target="#car-<%= car.id %>-modal" ><%= car.location.full :current if car.location %></td>
