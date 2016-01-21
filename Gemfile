@@ -7,21 +7,16 @@ gem "pg"
 gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3.0"
 gem "coffee-rails", "~> 4.1.0"
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem "therubyracer", platforms: :ruby
-
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem "jbuilder", "~> 2.0"
 
 gem "activeadmin", github: "activeadmin"
+gem "cpf_cnpj"
 gem "devise"
 gem "enumerate_it"
-
+gem "faker"
 gem "ejs"
 gem "ngannotate-rails"
-
-gem "faker"
-gem "cpf_cnpj"
+gem "plutus"
 
 group :development, :test do
   gem "pry-rails"

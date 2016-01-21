@@ -9,6 +9,7 @@
             <th><%= I18n.t "activerecord.attributes.person.cpf" %></th>
             <th><%= I18n.t "activerecord.attributes.person.total_debt" %></th>
             <th><%= I18n.t "activerecord.attributes.person.total_payments" %></th>
+            <th><%= I18n.t "activerecord.attributes.person.balance" %></th>
             <th><%= I18n.t "activerecord.attributes.person.active_cars" %></th>
             <th></th>
           </tr>
@@ -20,6 +21,7 @@
               <td><%= person.cpf %></td>
               <td><%= number_to_currency person.total_debt %></td>
               <td><%= number_to_currency person.total_payments %></td>
+              <td><%= number_to_currency person.balance %></td>
               <td><%= person.cars.active.count %></td>
               <td>
                 <%= link_to edit_finance_path(person.finance), class: "btn btn-default btn-sm", "aria-abel": "Right Align" do %>
@@ -42,6 +44,7 @@
             <th><%= I18n.t "activerecord.attributes.company.cnpj" %></th>
             <th><%= I18n.t "activerecord.attributes.company.total_debt" %></th>
             <th><%= I18n.t "activerecord.attributes.company.total_payments" %></th>
+            <th><%= I18n.t "activerecord.attributes.company.balance" %></th>
             <th><%= I18n.t "activerecord.attributes.company.active_cars" %></th>
             <th></th>
           </tr>
@@ -53,6 +56,7 @@
               <td><%= company.cnpj %></td>
               <td><%= number_to_currency company.total_debt %></td>
               <td><%= number_to_currency company.total_payments %></td>
+              <td><%= number_to_currency company.balance %></td>
               <td><%= company.cars.active.count %></td>
               <td>
                 <%= link_to edit_finance_path(company.finance), class: "btn btn-default btn-sm", "aria-abel": "Right Align" do %>

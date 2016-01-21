@@ -11,4 +11,8 @@ class Finance < ActiveRecord::Base
   def total_payments
     payments.map(&:value).sum
   end
+
+  def balance
+    total_payments - total_debt
+  end
 end

@@ -14,6 +14,7 @@ class Company < ActiveRecord::Base
 
   delegate :total_debt, to: :finance
   delegate :total_payments, to: :finance
+  delegate :balance, to: :finance
 
   def document
     cnpj

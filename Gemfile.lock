@@ -136,6 +136,10 @@ GEM
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
     pg (0.18.3)
+    plutus (0.12.2)
+      jquery-rails (>= 3.0)
+      jquery-ui-rails (>= 4.0)
+      rails (~> 4.0)
     polyamorous (1.2.0)
       activerecord (>= 3.0)
     pry (0.10.3)
@@ -227,6 +231,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   ngannotate-rails
   pg
+  plutus
   pry-rails
   rails (= 4.2.4)
   sass-rails (~> 5.0)

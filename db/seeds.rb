@@ -84,6 +84,9 @@ puts "Generating 50 cars and clients..."
       current_id: Faker::Number.between(1,5000)
     )
   end
+
+  Faker::Number.between(1, 3).times { @client.finance.payments.create(value: Faker::Commerce.price) }
+
 end
 
 puts "Done!"
