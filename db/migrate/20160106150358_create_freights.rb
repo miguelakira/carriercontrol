@@ -13,5 +13,7 @@ class CreateFreights < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    add_foreign_key :freights, :cars
   end
 end

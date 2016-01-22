@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160120125400) do
+ActiveRecord::Schema.define(version: 20160122132023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20160120125400) do
   end
 
   add_index "cars", ["client_type", "client_id"], name: "index_cars_on_client_type_and_client_id", using: :btree
+  add_index "cars", ["plate"], name: "index_cars_on_plate", unique: true, using: :btree
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -155,6 +156,39 @@ ActiveRecord::Schema.define(version: 20160120125400) do
     t.string   "observation"
   end
 
+  create_table "plutus_accounts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "type"
+    t.boolean  "contra"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "plutus_accounts", ["name", "type"], name: "index_plutus_accounts_on_name_and_type", using: :btree
+
+  create_table "plutus_amounts", force: :cascade do |t|
+    t.string  "type"
+    t.integer "account_id"
+    t.integer "entry_id"
+    t.decimal "amount",     precision: 20, scale: 10
+  end
+
+  add_index "plutus_amounts", ["account_id", "entry_id"], name: "index_plutus_amounts_on_account_id_and_entry_id", using: :btree
+  add_index "plutus_amounts", ["entry_id", "account_id"], name: "index_plutus_amounts_on_entry_id_and_account_id", using: :btree
+  add_index "plutus_amounts", ["type"], name: "index_plutus_amounts_on_type", using: :btree
+
+  create_table "plutus_entries", force: :cascade do |t|
+    t.string   "description"
+    t.date     "date"
+    t.integer  "commercial_document_id"
+    t.string   "commercial_document_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "plutus_entries", ["commercial_document_id", "commercial_document_type"], name: "index_entries_on_commercial_doc", using: :btree
+  add_index "plutus_entries", ["date"], name: "index_plutus_entries_on_date", using: :btree
+
   create_table "routes", force: :cascade do |t|
     t.integer  "origin_id"
     t.integer  "destination_id"
@@ -175,5 +209,6 @@ ActiveRecord::Schema.define(version: 20160120125400) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "freights", "cars"
   add_foreign_key "payments", "finances"
 end
